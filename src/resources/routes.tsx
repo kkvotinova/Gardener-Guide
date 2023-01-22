@@ -1,10 +1,21 @@
-import MainPage from '@/pages/MainPage';
-
 const routes = {
   index: {
     path: '/',
-    component: <MainPage />,
-    closeAccess: [],
+  },
+  calendar: {
+    path: '/calendar',
+  },
+  vegetables: {
+    path: '/vegetables',
+  },
+  flowers: {
+    path: '/flowers',
+  },
+  design: {
+    path: '/design',
+  },
+  profile: {
+    path: '/profile',
   },
 };
 
