@@ -1,6 +1,6 @@
 import { Button, styled } from '@mui/material';
 
-export const StyledHeader = styled('div')`
+export const StyledHeader = styled('header')`
   margin: 12px 0 28px;
 
   display: flex;
