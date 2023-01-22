@@ -1,7 +1,7 @@
 import { Button, styled } from '@mui/material';
 
 export const StyledHeader = styled('div')`
-  margin-bottom: 26px;
+  margin: 12px 0 28px;
 
   display: flex;
   align-items: center;
