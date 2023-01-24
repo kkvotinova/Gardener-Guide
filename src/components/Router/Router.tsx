@@ -21,6 +21,22 @@ const router = createBrowserRouter([
         path: routes.calendar.path,
         element: <div>Calendar</div>,
       },
+      {
+        path: routes.vegetables.path,
+        element: <div>vegetables</div>,
+      },
+      {
+        path: routes.flowers.path,
+        element: <div>flowers</div>,
+      },
+      {
+        path: routes.design.path,
+        element: <div>design</div>,
+      },
+      {
+        path: routes.profile.path,
+        element: <div>profile</div>,
+      },
     ],
   },
 ]);

@@ -23,6 +23,7 @@ const ErrorBoundary = () => {
           <Stack direction='column' spacing={6} alignItems='center'>
             <Icon404 />
             <Typography variant='h6'>Страница не найдена 🙁 Вернитесь на главную</Typography>
+            <img src='https://media.giphy.com/media/cjbfyJrICOaKIXBWyG/giphy.gif' alt='logo' />
             <Button
               fullWidth
               variant='contained'
