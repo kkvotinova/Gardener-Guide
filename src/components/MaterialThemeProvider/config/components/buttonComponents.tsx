@@ -17,14 +17,20 @@ const buttonComponents: Components = {
           whiteSpace: 'nowrap',
         },
       },
+      {
+        props: {
+          variant: 'contained',
+        },
+        style: {
+          color: palette.common.white,
+        },
+      },
     ],
     styleOverrides: {
       root: {
         ...typography.button,
 
         height: 42,
-
-        color: palette.common.white,
 
         textTransform: 'none',
         boxShadow: 'none !important',
