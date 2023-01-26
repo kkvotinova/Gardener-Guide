@@ -3,10 +3,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import NavBar from '@/components/NavBar/NavBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import {
-  StyledContentWrapper,
-  StyledOutletWrapper,
-} from '@/components/ContentWrapper/ContentWrapperStyled';
+import { StyledContentWrapper } from '@/components/ContentWrapper/ContentWrapperStyled';
 
 import routes from '@/resources/routes';
 
@@ -24,11 +21,7 @@ const ContentWrapper = () => {
     <StyledContentWrapper>
       <Header />
       <NavBar />
-
-      <StyledOutletWrapper>
-        <Outlet />
-      </StyledOutletWrapper>
-
+      <Outlet />
       <Footer />
     </StyledContentWrapper>
   );

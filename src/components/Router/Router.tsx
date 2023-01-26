@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainPage from '@/pages/MainPage';
+import CalendarPage from '@/pages/CalendarPage';
 
 import ErrorBoundary from '@/components/ErrorBoundary';
 import ContentWrapper from '@/components/ContentWrapper';
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: routes.calendar.path,
-        element: <div>Calendar</div>,
+        element: <CalendarPage />,
       },
       {
         path: routes.vegetables.path,

@@ -21,6 +21,10 @@ const typography = {
     lineHeight: '133.4%',
     fontWeight: 500,
   },
+  h6: {
+    fontSize: 20,
+    fontWeight: 500,
+  },
   subtitle1: {
     fontSize: 18,
     lineHeight: 1.33,
