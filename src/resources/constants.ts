@@ -22,3 +22,5 @@ export const dayLabels = ['Самые благоприятные', 'Благоп
 
 export const textColors = ['#008000', '#008000', '#212126', '#ff0000'];
 export const bgColors = ['#a5ea894d', '#a5ea894d', '#989fa61a', '#ff5a5a33'];
+
+export const moonPhasePositions = ['-401px -240px', '-160px 0', '-482px 0', '-320px -160px'];

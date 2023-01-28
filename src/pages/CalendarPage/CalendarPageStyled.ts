@@ -1,5 +1,7 @@
 import { Stack, styled } from '@mui/material';
 
+import moonPhases from '@/images/moonPhases.png';
+
 import transientProps from '@/utils/transientProps';
 
 export const StyledMoonWrapper = styled(Stack)`
@@ -24,9 +26,11 @@ export const StyledMoon = styled(Stack)`
   align-items: center;
 `;
 
-export const StyledMoonImage = styled('img')`
-  max-width: 120px;
-  max-height: 120px;
+export const StyledMoonImage = styled('div', transientProps)<{ $position: string }>`
+  width: 69px;
+  height: 69px;
+  background: url(${moonPhases}) no-repeat;
+  background-position: ${({ $position }) => $position};
 `;
 
 export const StyledDay = styled(Stack, transientProps)<{ $bgColor: string }>`

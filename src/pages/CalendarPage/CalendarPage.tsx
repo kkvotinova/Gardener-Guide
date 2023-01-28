@@ -11,13 +11,12 @@ import {
 
 import SideBar from '@/components/SideBar';
 
-import moon from '@/images/moon.png';
-
 import {
   bgColors,
   dayLabels,
   Months,
   moonLabels,
+  moonPhasePositions,
   textColors,
   translateMonth,
 } from '@/resources/constants';
@@ -43,7 +42,7 @@ const CalendarPage = () => {
     return values.map((a, i) => {
       return (
         <StyledMoon key={a} spacing={2}>
-          <StyledMoonImage src={moon} alt='growing moon' />
+          <StyledMoonImage $position={moonPhasePositions[i]} />
           <Typography sx={{ fontWeight: '500' }}>{moonLabels[i]}</Typography>
           <Typography textAlign='center'>{a}</Typography>
         </StyledMoon>
