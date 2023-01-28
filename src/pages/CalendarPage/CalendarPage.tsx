@@ -67,9 +67,11 @@ const CalendarPage = () => {
 
   return (
     <>
-      <Typography variant='h5'>Лунный календарь садовода на 2023 год</Typography>
+      <Typography variant='h5' sx={{ mb: 6 }}>
+        Лунный календарь садовода на 2023 год
+      </Typography>
 
-      <Stack direction='row' spacing={8} sx={{ mt: 6 }}>
+      <Stack direction='row' spacing={8}>
         <SideBar />
         <Stack direction='column'>
           <Typography variant='h6'>Фазы луны в {translateMonth(currentMonth)}</Typography>

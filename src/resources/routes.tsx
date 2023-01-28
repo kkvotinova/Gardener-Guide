@@ -7,9 +7,11 @@ const routes = {
   },
   vegetables: {
     path: '/vegetables',
+    detailPath: (id: string | number) => `/vegetables/${id}`,
   },
   flowers: {
     path: '/flowers',
+    detailPath: (id: string | number) => `/flowers/${id}`,
   },
   design: {
     path: '/design',

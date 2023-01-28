@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import VegetablesPage from '@/pages/VegetablesPage';
 import MainPage from '@/pages/MainPage';
+import FlowersPage from '@/pages/FlowersPage';
+import DesignPage from '@/pages/DesignPage';
 import CalendarPage from '@/pages/CalendarPage';
 
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -24,15 +27,23 @@ const router = createBrowserRouter([
       },
       {
         path: routes.vegetables.path,
-        element: <div>vegetables</div>,
+        element: <VegetablesPage />,
+      },
+      {
+        path: routes.vegetables.detailPath(':id'),
+        element: <div>detail vegetable page</div>,
       },
       {
         path: routes.flowers.path,
-        element: <div>flowers</div>,
+        element: <FlowersPage />,
+      },
+      {
+        path: routes.flowers.detailPath(':id'),
+        element: <div>detail flower page</div>,
       },
       {
         path: routes.design.path,
-        element: <div>design</div>,
+        element: <DesignPage />,
       },
       {
         path: routes.profile.path,
