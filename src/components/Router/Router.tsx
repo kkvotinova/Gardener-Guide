@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import VegetablesPage from '@/pages/VegetablesPage';
+import VegetablePage from '@/pages/VegetablePage';
 import MainPage from '@/pages/MainPage';
 import FlowersPage from '@/pages/FlowersPage';
 import DesignPage from '@/pages/DesignPage';
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: routes.vegetables.detailPath(':id'),
-        element: <div>detail vegetable page</div>,
+        element: <VegetablePage />,
       },
       {
         path: routes.flowers.path,

@@ -1,3 +1,5 @@
+export const DEFAULT_ERROR_MESSAGE = 'Ошибка запроса к серверу';
+
 export const Months = [
   { label: 'Январь', translate: 'январе', value: 'january' },
   { label: 'Февраль', translate: 'феврале', value: 'february' },

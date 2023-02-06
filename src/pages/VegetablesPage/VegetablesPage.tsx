@@ -4,6 +4,7 @@ import { Typography } from '@mui/material';
 import { StyledList } from '@/pages/VegetablesPage/VegetablesPageStyled';
 
 import Search from '@/components/Search';
+import Loader from '@/components/Loader';
 import ItemCard from '@/components/ItemCard';
 
 import routes from '@/resources/routes';
@@ -33,6 +34,8 @@ const VegetablesPage = () => {
     });
   }, []);
 
+  const isLoading = false;
+
   return (
     <>
       <Typography variant='h5' sx={{ mb: 7 }}>
@@ -41,7 +44,7 @@ const VegetablesPage = () => {
 
       <Search queryName='vegetable' />
 
-      <StyledList>{config}</StyledList>
+      {isLoading ? <Loader color='primary' /> : <StyledList>{config}</StyledList>}
     </>
   );
 };

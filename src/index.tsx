@@ -3,6 +3,7 @@ import React from 'react';
 import { CssBaseline } from '@mui/material';
 
 import Router from '@/components/Router';
+import ReduxProvider from '@/components/ReduxProvider';
 import MaterialThemeProvider from '@/components/MaterialThemeProvider';
 import AppModalsList from '@/components/AppModalsList';
 
@@ -12,8 +13,10 @@ root.render(
   <React.StrictMode>
     <MaterialThemeProvider>
       <CssBaseline />
-      <Router />
-      <AppModalsList />
+      <ReduxProvider>
+        <Router />
+        <AppModalsList />
+      </ReduxProvider>
     </MaterialThemeProvider>
   </React.StrictMode>,
 );
