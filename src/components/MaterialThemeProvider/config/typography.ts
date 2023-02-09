@@ -12,7 +12,7 @@ const typography = {
     fontWeight: 700,
   },
   h4: {
-    fontSize: 34,
+    fontSize: 28,
     lineHeight: 1.23,
     fontWeight: 500,
   },
@@ -37,7 +37,7 @@ const typography = {
   },
   body1: {
     fontSize: 16,
-    lineHeight: 1.25,
+    lineHeight: 2,
     fontWeight: 400,
   },
   body2: {
