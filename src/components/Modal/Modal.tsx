@@ -10,11 +10,12 @@ const Modal = ({
   onClose,
   title,
   children,
+  className,
   maxWidth = 'sm',
   hasEmptyPadding = false,
 }: ModalProps) => {
   return (
-    <Dialog open={isOpen} onClose={onClose} maxWidth={maxWidth} fullWidth>
+    <Dialog open={isOpen} onClose={onClose} maxWidth={maxWidth} className={className} fullWidth>
       <DialogTitle>
         {title}
         <IconButton onClick={onClose}>

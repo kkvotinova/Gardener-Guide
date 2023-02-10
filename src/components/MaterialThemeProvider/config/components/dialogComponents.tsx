@@ -5,6 +5,7 @@ const dialogComponents: Components = {
     styleOverrides: {
       paper: {
         padding: 0,
+        borderRadius: '8px',
       },
     },
   },

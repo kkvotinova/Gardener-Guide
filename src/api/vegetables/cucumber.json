@@ -1,4 +1,5 @@
 {
+  "id": "cucumber",
   "name": "Огурец",
   "preview": "https://cdn-icons-png.flaticon.com/512/7119/7119784.png",
   "description": "Огурцы - это овощ теплого сезона, высаживаемый на открытом воздухе в грунт не ранее, чем через 2 недели после даты последних весенних заморозков. Большинство сортов будут расти на любом пространстве, благодаря способности растения карабкаться. Наиболее распространенные сорта нарезанных огурцов имеют раскидистые виноградные лозы с большими зелеными листьями и вьющимися усиками. Рост этих растений быстрый, а урожайность обильная, если вы правильно за ними ухаживаете.",
@@ -62,8 +63,30 @@
     }
   ],
   "plants": {
-    "companion": ["cabbage", "tomatoes"],
-    "combative": ["potatoes", "pumpkin"]
+    "companion": [
+      {
+        "id": "cabbage",
+        "name": "Капуста",
+        "preview": "https://cdn-icons-png.flaticon.com/512/8856/8856299.png"
+      },
+      {
+        "id": "tomatoes",
+        "name": "Помидор",
+        "preview": "https://cdn-icons-png.flaticon.com/512/199/199620.png"
+      }
+    ],
+    "combative": [
+      {
+        "id": "potatoes",
+        "name": "Картофель",
+        "preview": "https://cdn-icons-png.flaticon.com/512/1652/1652077.png"
+      },
+      {
+        "id": "pumpkin",
+        "name": "Тыква",
+        "preview": "https://cdn-icons-png.flaticon.com/512/6135/6135880.png"
+      }
+    ]
   },
   "fullInfo": [
     {

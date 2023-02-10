@@ -9,6 +9,7 @@ import Icon404 from '@/icons/Icon404';
 
 import routes from '@/resources/routes';
 
+// TODO: адаптив под мобилку
 const ErrorBoundary = () => {
   const navigate = useNavigate();
 

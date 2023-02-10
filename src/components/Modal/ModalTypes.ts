@@ -7,4 +7,5 @@ export interface ModalProps extends Pick<DialogProps, 'maxWidth'> {
   onClose: () => void;
   children: ReactNode | ReactNode[];
   hasEmptyPadding?: boolean;
+  className?: string;
 }

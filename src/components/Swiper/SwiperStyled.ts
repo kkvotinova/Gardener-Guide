@@ -2,8 +2,13 @@ import { Swiper } from 'swiper/react';
 import { styled } from '@mui/material';
 
 export const StyledSwiperWrapper = styled('div')`
-  width: 460px;
-  height: 300px;
+  width: 100%;
+  height: 72vw;
+
+  @media (min-width: 460px) {
+    width: 460px;
+    height: 300px;
+  }
 `;
 
 export const StyledSwiper = styled(Swiper)`

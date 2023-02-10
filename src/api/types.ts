@@ -1,17 +1,18 @@
 export interface ApiPlant {
+  id: string;
   name: string;
   preview: string;
   description: string;
   gallery: string[];
   quickInfo: ApiQuickInfo[];
   plants: {
-    companion: string[];
-    combative: string[];
+    companion: Pick<ApiPlant, 'id' | 'name' | 'preview'>[];
+    combative: Pick<ApiPlant, 'id' | 'name' | 'preview'>[];
   };
-  fullInfo: CoomonInfo[];
+  fullInfo: CommonInfo[];
 }
 
-export interface CoomonInfo {
+export interface CommonInfo {
   title: string;
   description: string;
 }
@@ -19,7 +20,7 @@ export interface CoomonInfo {
 export interface ApiQuickInfo {
   type: PossibleQuickInfo;
   value: string;
-  info?: CoomonInfo;
+  info?: CommonInfo;
 }
 
 export enum PossibleQuickInfo {
