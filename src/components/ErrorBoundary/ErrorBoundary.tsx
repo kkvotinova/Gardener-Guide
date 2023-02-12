@@ -2,16 +2,17 @@ import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router-d
 import { useCallback, useMemo } from 'react';
 import { Button, Stack, Typography } from '@mui/material';
 
-import { StyledErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundaryStyled';
-
-import Icon500 from '@/icons/Icon500';
-import Icon404 from '@/icons/Icon404';
+import {
+  StyledErrorBoundary,
+  StyledIcon404,
+  StyledIcon500,
+  StyledImage,
+} from '@/components/ErrorBoundary/ErrorBoundaryStyled';
 
 import Image404 from '@/images/Image404.gif';
 
 import routes from '@/resources/routes';
 
-// TODO: адаптив под мобилку
 const ErrorBoundary = () => {
   const navigate = useNavigate();
 
@@ -24,9 +25,11 @@ const ErrorBoundary = () => {
       if (error.status === 404)
         return (
           <Stack direction='column' spacing={6} alignItems='center'>
-            <Icon404 />
-            <Typography variant='h6'>Страница не найдена 🙁 Вернитесь на главную</Typography>
-            <img src={Image404} alt='logo' />
+            <StyledIcon404 />
+            <Typography textAlign='center' variant='h6'>
+              Страница не найдена 🙁 Вернитесь на главную
+            </Typography>
+            <StyledImage src={Image404} alt='logo' />
             <Button
               fullWidth
               variant='contained'
@@ -41,8 +44,10 @@ const ErrorBoundary = () => {
 
     return (
       <Stack direction='column' spacing={6} alignItems='center'>
-        <Icon500 />
-        <Typography variant='h6'>Что-то пошло не так 🙁 Обновите страницу</Typography>
+        <StyledIcon500 />
+        <Typography textAlign='center' variant='h6'>
+          Что-то пошло не так 🙁 Обновите страницу
+        </Typography>
         <Button fullWidth variant='contained' onClick={handleReloadPage} style={{ maxWidth: 240 }}>
           Обновить
         </Button>
