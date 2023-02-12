@@ -19,7 +19,7 @@ import {
   moonPhasePositions,
   textColors,
   translateMonth,
-} from '@/resources/constants';
+} from '@/resources/constants/calendar';
 
 import { MOON_CALENDAR } from '@/api/calendar';
 
