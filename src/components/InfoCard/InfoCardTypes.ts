@@ -1,3 +1,3 @@
-import { ApiQuickInfo } from '@/api/types';
+import { ApiPlantQuickInfo } from '@/api/types';
 
-export type InfoCardProps = ApiQuickInfo;
+export type InfoCardProps = ApiPlantQuickInfo;

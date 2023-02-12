@@ -28,12 +28,12 @@ const VegetablePage = () => {
 
   const getNeighborsList = useCallback(
     (key: 'companion' | 'combative') => {
-      return vegetable?.plants[key].map((plant) => {
+      return vegetable?.neighbors[key].map((plant) => {
         const linkToView = routes.vegetables.detailPath(plant.id);
         return <PlantCard key={plant.id} linkToView={linkToView} {...plant} hasSmallSize />;
       });
     },
-    [vegetable?.plants],
+    [vegetable?.neighbors],
   );
 
   const configForFullInfo = useMemo(() => {

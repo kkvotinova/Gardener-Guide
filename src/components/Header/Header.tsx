@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 
 import { StyledHeader, StyledButton, StyledLogo } from '@/components/Header/HeaderStyled';
 
-import logo from '@/images/logo.png';
+import ImageLogo from '@/images/ImageLogo.png';
 
 import routes from '@/resources/routes';
 
@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <StyledLogo src={logo} alt='logo' onClick={redirectToMainPage} />
+      <StyledLogo src={ImageLogo} alt='logo' onClick={redirectToMainPage} />
       <Typography
         variant='h2'
         color='primary.dark'

@@ -12,7 +12,7 @@ import IconEarth from '@/icons/IconEarth';
 import IconDownload from '@/icons/IconDownload';
 import IconCalendar from '@/icons/IconCalendar';
 
-import { translateQuickInfoTitle } from '@/resources/constants';
+import { translateQuickInfoTitle } from '@/resources/constants/plant';
 
 import ModalCardInfo from '@/modals/ModalCardInfo/ModalCardInfo';
 import { PossibleQuickInfo } from '@/api/types';
@@ -27,14 +27,16 @@ const infoIcons: Record<PossibleQuickInfo, JSX.Element> = {
   [PossibleQuickInfo.SPROUT_TO_HARVEST]: <IconCalendar />,
 };
 
-const InfoCard = ({ type, value, info }: InfoCardProps) => {
-  const hasInfo = Boolean(info);
+const InfoCard = (props: InfoCardProps) => {
+  const { type, value, description } = props;
+
+  const hasInfo = Boolean(description);
 
   const openInfoCardModal = useCallback(() => {
     if (hasInfo) {
-      ModalCardInfo.show(info);
+      ModalCardInfo.show(props);
     }
-  }, [hasInfo, info]);
+  }, [hasInfo, props]);
 
   return (
     <StyledInfoCard

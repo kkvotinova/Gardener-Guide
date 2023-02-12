@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import { StyledSideBar, StyleTypography } from '@/components/SideBar/SideBarStyled';
 
-import { Months } from '@/resources/constants';
+import { Months } from '@/resources/constants/calendar';
 
 const SideBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();

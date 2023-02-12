@@ -1,6 +1,6 @@
 import { Stack, styled } from '@mui/material';
 
-import moonPhases from '@/images/moonPhases.png';
+import ImageMoonPhases from '@/images/ImageMoonPhases.png';
 
 import transientProps from '@/utils/transientProps';
 
@@ -29,7 +29,7 @@ export const StyledMoon = styled(Stack)`
 export const StyledMoonImage = styled('div', transientProps)<{ $position: string }>`
   width: 69px;
   height: 69px;
-  background: url(${moonPhases}) no-repeat;
+  background: url(${ImageMoonPhases}) no-repeat;
   background-position: ${({ $position }) => $position};
 `;
 

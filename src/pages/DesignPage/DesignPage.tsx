@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 
 import { StyledImage } from '@/pages/DesignPage/DesignPageStyled';
 
-import lego from '@/images/lego.gif';
+import ImageLego from '@/images/ImageLego.gif';
 
 const DesignPage = () => {
   return (
@@ -15,7 +15,7 @@ const DesignPage = () => {
         Страница находится в разработке
       </Typography>
 
-      <StyledImage src={lego} alt='lego' />
+      <StyledImage src={ImageLego} alt='lego' />
     </>
   );
 };

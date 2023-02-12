@@ -7,6 +7,8 @@ import { StyledErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundarySty
 import Icon500 from '@/icons/Icon500';
 import Icon404 from '@/icons/Icon404';
 
+import Image404 from '@/images/Image404.gif';
+
 import routes from '@/resources/routes';
 
 // TODO: адаптив под мобилку
@@ -24,7 +26,7 @@ const ErrorBoundary = () => {
           <Stack direction='column' spacing={6} alignItems='center'>
             <Icon404 />
             <Typography variant='h6'>Страница не найдена 🙁 Вернитесь на главную</Typography>
-            <img src='https://media.giphy.com/media/cjbfyJrICOaKIXBWyG/giphy.gif' alt='logo' />
+            <img src={Image404} alt='logo' />
             <Button
               fullWidth
               variant='contained'

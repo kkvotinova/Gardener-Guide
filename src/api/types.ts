@@ -1,34 +1,39 @@
 export interface ApiPlant {
   id: string;
   name: string;
+  variant: 'vegetable' | 'flower';
   preview: string;
   description: string;
   gallery: string[];
-  quickInfo: ApiQuickInfo[];
-  plants: {
-    companion: Pick<ApiPlant, 'id' | 'name' | 'preview'>[];
-    combative: Pick<ApiPlant, 'id' | 'name' | 'preview'>[];
-  };
-  fullInfo: CommonInfo[];
+  quickInfo: ApiPlantQuickInfo[];
+  neighbors: ApiPlantNeighbors;
+  fullInfo: ApiPlantFullInfo[];
 }
 
-export interface CommonInfo {
+type NeighborInfo = Pick<ApiPlant, 'id' | 'name' | 'preview'>;
+
+interface ApiPlantNeighbors {
+  companion: NeighborInfo[];
+  combative: NeighborInfo[];
+}
+
+interface ApiPlantFullInfo {
   title: string;
   description: string;
 }
 
-export interface ApiQuickInfo {
+export interface ApiPlantQuickInfo {
   type: PossibleQuickInfo;
   value: string;
-  info?: CommonInfo;
+  description?: string;
 }
 
 export enum PossibleQuickInfo {
-  DEPTH = 'depth',
-  SUN = 'sun',
-  WATER = 'water',
-  SEASON = 'season',
-  FROST = 'frost',
-  GERMINATION = 'germination',
-  SPROUT_TO_HARVEST = 'sproutToHarvest',
+  DEPTH = 'DEPTH',
+  SUN = 'SUN',
+  WATER = 'WATER',
+  SEASON = 'SEASON',
+  FROST = 'FROST',
+  GERMINATION = 'GERMINATION',
+  SPROUT_TO_HARVEST = 'SPROUT_TO_HARVEST',
 }
