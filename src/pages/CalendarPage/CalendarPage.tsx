@@ -44,7 +44,9 @@ const CalendarPage = () => {
         <StyledMoon key={a} spacing={2}>
           <StyledMoonImage $position={moonPhasePositions[i]} />
           <Typography sx={{ fontWeight: '500' }}>{moonLabels[i]}</Typography>
-          <Typography textAlign='center'>{a}</Typography>
+          <Typography textAlign='center' lineHeight='1.25'>
+            {a}
+          </Typography>
         </StyledMoon>
       );
     });
