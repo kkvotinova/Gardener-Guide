@@ -1,7 +1,7 @@
 export interface ApiPlant {
   id: string;
   name: string;
-  variant: 'vegetable' | 'flower';
+  variant: 'vegetable' | 'herb';
   preview: string;
   description: string;
   gallery: string[];

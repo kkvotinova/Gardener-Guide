@@ -19,7 +19,7 @@ const useSidebarRouting = () => {
       },
       {
         name: 'ЦВЕТЫ И РАСТЕНИЯ',
-        href: routes.flowers.path,
+        href: routes.herbs.path,
       },
       {
         name: 'ДАЧНЫЙ ДИЗАЙН',

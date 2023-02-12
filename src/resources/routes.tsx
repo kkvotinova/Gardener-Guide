@@ -9,9 +9,9 @@ const routes = {
     path: '/vegetables',
     detailPath: (id: string | number) => `/vegetables/${id}`,
   },
-  flowers: {
-    path: '/flowers',
-    detailPath: (id: string | number) => `/flowers/${id}`,
+  herbs: {
+    path: '/herbs',
+    detailPath: (id: string | number) => `/herbs/${id}`,
   },
   design: {
     path: '/design',

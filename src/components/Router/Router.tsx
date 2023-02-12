@@ -1,9 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import VegetablesPage from '@/pages/VegetablesPage';
-import VegetablePage from '@/pages/VegetablePage';
+import PlantsPage from '@/pages/PlantsPage';
+import PlantPage from '@/pages/PlantPage';
 import MainPage from '@/pages/MainPage';
-import FlowersPage from '@/pages/FlowersPage';
 import DesignPage from '@/pages/DesignPage';
 import CalendarPage from '@/pages/CalendarPage';
 
@@ -28,19 +27,19 @@ const router = createBrowserRouter([
       },
       {
         path: routes.vegetables.path,
-        element: <VegetablesPage />,
+        element: <PlantsPage />,
       },
       {
         path: routes.vegetables.detailPath(':id'),
-        element: <VegetablePage />,
+        element: <PlantPage />,
       },
       {
-        path: routes.flowers.path,
-        element: <FlowersPage />,
+        path: routes.herbs.path,
+        element: <PlantsPage isHerbPage />,
       },
       {
-        path: routes.flowers.detailPath(':id'),
-        element: <div>detail flower page</div>,
+        path: routes.herbs.detailPath(':id'),
+        element: <PlantPage isHerbPage />,
       },
       {
         path: routes.design.path,

@@ -7,7 +7,7 @@ import {
   StyledStack,
   StyledMainInfo,
   StyledNeighborsList,
-} from '@/pages/VegetablePage/VegetablePageStyled';
+} from '@/pages/PlantPage/PlantPageStyled';
 
 import Swiper from '@/components/Swiper';
 import PlantCard from '@/components/PlantCard';
@@ -15,9 +15,11 @@ import InfoCard from '@/components/InfoCard';
 
 import routes from '@/resources/routes';
 
+import { PlantPageProp } from '@/types';
+import NotFound from '@/routes/NotFound';
 import { VEGETABLES } from '@/api/vegetables';
 
-const VegetablePage = () => {
+const PlantPage = ({ isHerbPage }: PlantPageProp) => {
   const { id } = useParams();
 
   const vegetable = VEGETABLES.find((a) => a.id === id);
@@ -45,9 +47,8 @@ const VegetablePage = () => {
     ));
   }, [vegetable?.fullInfo]);
 
-  // TODO: сделать страницу
-  if (!vegetable) {
-    return <Typography>Not data</Typography>;
+  if (!vegetable || isHerbPage) {
+    return <NotFound hideIcon />;
   }
 
   return (
@@ -87,4 +88,4 @@ const VegetablePage = () => {
   );
 };
 
-export default VegetablePage;
+export default PlantPage;
