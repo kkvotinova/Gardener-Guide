@@ -8,6 +8,7 @@ import palette from '@/components/MaterialThemeProvider/config/palette';
 import dialogComponents from '@/components/MaterialThemeProvider/config/components/dialogComponents';
 import buttonComponents from '@/components/MaterialThemeProvider/config/components/buttonComponents';
 import baseline from '@/components/MaterialThemeProvider/config/components/baseline';
+import breakpoints from '@/components/MaterialThemeProvider/config/breakpoints';
 
 type NewTheme = typeof theme;
 
@@ -34,6 +35,7 @@ const theme = createTheme({
   shape,
   palette,
   typography,
+  breakpoints,
 
   spacing: 4,
 
