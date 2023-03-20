@@ -1,7 +1,7 @@
 export interface ApiPlant {
-  id: string;
+  _id: string;
   name: string;
-  variant: 'vegetable' | 'herb';
+  type: ApiPlantType;
   preview: string;
   description: string;
   gallery: string[];
@@ -10,7 +10,12 @@ export interface ApiPlant {
   fullInfo: ApiPlantFullInfo[];
 }
 
-type NeighborInfo = Pick<ApiPlant, 'id' | 'name' | 'preview'>;
+export enum ApiPlantType {
+  VEGETABLE = 'vegetable',
+  HERB = 'herb',
+}
+
+type NeighborInfo = Pick<ApiPlant, '_id' | 'type' | 'name' | 'preview'>;
 
 interface ApiPlantNeighbors {
   companion: NeighborInfo[];
@@ -37,3 +42,13 @@ export enum PossibleQuickInfo {
   GERMINATION = 'GERMINATION',
   SPROUT_TO_HARVEST = 'SPROUT_TO_HARVEST',
 }
+
+// === READ ↴
+
+export type ApiAllPlantsGetQuery = ApiPlantType;
+export type ApiAllPlantsGetResponse = ApiPlant[];
+
+// === READ ↴
+
+export type ApiPlantsGetQuery = Pick<ApiPlant, '_id' | 'type'>;
+export type ApiPlantsGetResponse = ApiPlant;

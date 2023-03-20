@@ -11,54 +11,62 @@ import {
 
 import Swiper from '@/components/Swiper';
 import PlantCard from '@/components/PlantCard';
+import Loader from '@/components/Loader';
 import InfoCard from '@/components/InfoCard';
 
 import routes from '@/resources/routes';
 
 import { PlantPageProp } from '@/types';
 import NotFound from '@/routes/NotFound';
-import { VEGETABLES } from '@/api/vegetables';
+import { ApiPlantType } from '@/redux/services/plants/plants.type';
+import { useGetPlantQuery } from '@/redux/services/plants/plants';
 
 const PlantPage = ({ isHerbPage }: PlantPageProp) => {
   const { id } = useParams();
 
-  const vegetable = VEGETABLES.find((a) => a.id === id);
+  const plantsType = isHerbPage ? ApiPlantType.HERB : ApiPlantType.VEGETABLE;
+
+  const { data: plant, isLoading } = useGetPlantQuery({ type: plantsType, _id: String(id) });
 
   const configForQuickInfo = useMemo(() => {
-    return vegetable?.quickInfo.map((info) => <InfoCard key={info.type} {...info} />);
-  }, [vegetable?.quickInfo]);
+    return plant?.quickInfo.map((info) => <InfoCard key={info.type} {...info} />);
+  }, [plant?.quickInfo]);
 
   const getNeighborsList = useCallback(
     (key: 'companion' | 'combative') => {
-      return vegetable?.neighbors[key].map((plant) => {
-        const linkToView = routes.vegetables.detailPath(plant.id);
-        return <PlantCard key={plant.id} linkToView={linkToView} {...plant} hasSmallSize />;
+      return plant?.neighbors[key].map((item) => {
+        const linkToView = routes.vegetables.detailPath(item._id);
+        return <PlantCard key={item._id} linkToView={linkToView} {...item} hasSmallSize />;
       });
     },
-    [vegetable?.neighbors],
+    [plant?.neighbors],
   );
 
   const configForFullInfo = useMemo(() => {
-    return vegetable?.fullInfo.map(({ title, description }, i) => (
+    return plant?.fullInfo.map(({ title, description }, i) => (
       <Stack key={i} direction='column' spacing={1}>
         <Typography variant='h5'>{title}</Typography>
         <Typography>{description}</Typography>
       </Stack>
     ));
-  }, [vegetable?.fullInfo]);
+  }, [plant?.fullInfo]);
 
-  if (!vegetable || isHerbPage) {
+  if (isLoading) {
+    return <Loader color='primary' />;
+  }
+
+  if (!plant) {
     return <NotFound hideIcon />;
   }
 
   return (
     <>
       <StyledStack direction='row' spacing={10}>
-        <Swiper altText={id} items={vegetable.gallery} />
+        <Swiper altText={id} items={plant.gallery} />
 
         <StyledMainInfo direction='column' spacing={4}>
-          <Typography variant='h4'>{vegetable.name}</Typography>
-          <Typography>{vegetable.description}</Typography>
+          <Typography variant='h4'>{plant.name}</Typography>
+          <Typography>{plant.description}</Typography>
         </StyledMainInfo>
       </StyledStack>
 

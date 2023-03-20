@@ -1,4 +1,4 @@
-import { PossibleQuickInfo } from '@/api/types';
+import { PossibleQuickInfo } from '@/redux/services/plants/plants.type';
 
 export const translateQuickInfoTitle = (title: PossibleQuickInfo) => {
   switch (title) {
