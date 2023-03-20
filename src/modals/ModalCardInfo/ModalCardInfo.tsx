@@ -4,8 +4,8 @@ import Modal from '@/components/Modal';
 
 import { translateQuickInfoDescriptionTitle } from '@/resources/constants/plant';
 
+import { ApiPlantQuickInfo } from '@/redux/services/plants/plants.type';
 import withStaticModal, { StaticModalWrappedComponent } from '@/modals/withStaticModal';
-import { ApiPlantQuickInfo } from '@/api/types';
 
 const StyledTypography = styled(Typography)`
   padding-left: 8px;

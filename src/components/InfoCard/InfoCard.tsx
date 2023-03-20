@@ -14,8 +14,8 @@ import IconCalendar from '@/icons/IconCalendar';
 
 import { translateQuickInfoTitle } from '@/resources/constants/plant';
 
+import { PossibleQuickInfo } from '@/redux/services/plants/plants.type';
 import ModalCardInfo from '@/modals/ModalCardInfo/ModalCardInfo';
-import { PossibleQuickInfo } from '@/api/types';
 
 const infoIcons: Record<PossibleQuickInfo, JSX.Element> = {
   [PossibleQuickInfo.DEPTH]: <IconDownload />,

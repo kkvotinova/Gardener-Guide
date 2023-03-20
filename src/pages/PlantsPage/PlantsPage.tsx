@@ -10,32 +10,34 @@ import Loader from '@/components/Loader';
 import routes from '@/resources/routes';
 
 import { PlantsPageProp } from '@/types';
-import { VEGETABLES } from '@/api/vegetables';
+import { ApiPlantType } from '@/redux/services/plants/plants.type';
+import { useGetAllPlantsQuery } from '@/redux/services/plants/plants';
 
 const PlantsPage = ({ isHerbPage }: PlantsPageProp) => {
+  const plantsType = isHerbPage ? ApiPlantType.HERB : ApiPlantType.VEGETABLE;
+
+  const { data: plants, isLoading } = useGetAllPlantsQuery(plantsType);
+
   const config = useMemo(() => {
-    if (isHerbPage) return [];
+    if (!plants) return [];
 
-    return VEGETABLES.map((plant) => {
-      const linkToView = routes.vegetables.detailPath(plant.id);
-      return <PlantCard key={plant.id} linkToView={linkToView} {...plant} />;
+    return plants.map((plant) => {
+      const linkToView = routes.vegetables.detailPath(plant._id);
+      return <PlantCard key={plant._id} linkToView={linkToView} {...plant} />;
     });
-  }, [isHerbPage]);
-
-  const isLoading = false;
+  }, [plants]);
 
   const MainInfo = useMemo(() => {
-    const queryName = isHerbPage ? 'herb' : 'vegetable';
     return (
       <>
         <Typography variant='h5' sx={{ mb: 7 }}>
           Сад и Огород
         </Typography>
 
-        <Search queryName={queryName} />
+        <Search queryName={plantsType} />
       </>
     );
-  }, [isHerbPage]);
+  }, [plantsType]);
 
   if (isLoading) {
     return (
