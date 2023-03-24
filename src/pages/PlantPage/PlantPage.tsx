@@ -34,7 +34,11 @@ const PlantPage = ({ isHerbPage }: PlantPageProp) => {
 
   const getNeighborsList = useCallback(
     (key: 'companion' | 'combative') => {
-      return plant?.neighbors[key].map((item) => {
+      if (!plant?.neighbors[key].length) {
+        return <Typography color='text.secondary'>Нет известных</Typography>;
+      }
+
+      return plant.neighbors[key].map((item) => {
         const linkToView = routes.vegetables.detailPath(item._id);
         return <PlantCard key={item._id} linkToView={linkToView} {...item} hasSmallSize />;
       });

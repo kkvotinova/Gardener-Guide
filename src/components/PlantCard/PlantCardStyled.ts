@@ -19,8 +19,7 @@ export const StyledPlantCard = styled(Link, transientProps)<{ $hasSmallSize: boo
 
   &:hover {
     color: ${({ theme }) => theme.palette.primary.dark};
-    transform: scale(0.9);
-    background-color: rgba(0, 0, 0, 0.02);
+    transform: scale(0.95);
   }
 `;
 

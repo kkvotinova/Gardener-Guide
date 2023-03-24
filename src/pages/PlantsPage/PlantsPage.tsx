@@ -31,13 +31,13 @@ const PlantsPage = ({ isHerbPage }: PlantsPageProp) => {
     return (
       <>
         <Typography variant='h5' sx={{ mb: 7 }}>
-          Сад и Огород
+          {isHerbPage ? 'Цветы и Растения' : 'Сад и Огород'}
         </Typography>
 
         <Search queryName={plantsType} />
       </>
     );
-  }, [plantsType]);
+  }, [isHerbPage, plantsType]);
 
   if (isLoading) {
     return (
