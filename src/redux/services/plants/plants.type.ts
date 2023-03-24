@@ -45,7 +45,10 @@ export enum PossibleQuickInfo {
 
 // === READ ↴
 
-export type ApiAllPlantsGetQuery = ApiPlantType;
+export type ApiAllPlantsGetQuery = {
+  type: ApiPlantType;
+  name?: string;
+};
 export type ApiAllPlantsGetResponse = ApiPlant[];
 
 // === READ ↴

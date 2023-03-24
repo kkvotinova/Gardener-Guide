@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom';
 import { useMemo } from 'react';
 import { Typography } from '@mui/material';
 
@@ -13,10 +14,19 @@ import { PlantsPageProp } from '@/types';
 import { ApiPlantType } from '@/redux/services/plants/plants.type';
 import { useGetAllPlantsQuery } from '@/redux/services/plants/plants';
 
+const queryName = 'name';
+
 const PlantsPage = ({ isHerbPage }: PlantsPageProp) => {
   const plantsType = isHerbPage ? ApiPlantType.HERB : ApiPlantType.VEGETABLE;
 
-  const { data: plants, isLoading } = useGetAllPlantsQuery(plantsType);
+  const [searchParams] = useSearchParams();
+
+  const queryValue = searchParams.get(queryName);
+
+  const { data: plants, isLoading } = useGetAllPlantsQuery({
+    type: plantsType,
+    name: queryValue || undefined,
+  });
 
   const config = useMemo(() => {
     if (!plants) return [];
@@ -34,10 +44,10 @@ const PlantsPage = ({ isHerbPage }: PlantsPageProp) => {
           {isHerbPage ? 'Цветы и Растения' : 'Сад и Огород'}
         </Typography>
 
-        <Search queryName={plantsType} />
+        <Search queryName={queryName} />
       </>
     );
-  }, [isHerbPage, plantsType]);
+  }, [isHerbPage]);
 
   if (isLoading) {
     return (

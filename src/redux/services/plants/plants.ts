@@ -16,7 +16,7 @@ const plantsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '/api/plants' }),
   endpoints: (build) => ({
     getAllPlants: build.query<ApiAllPlantsGetResponse, ApiAllPlantsGetQuery>({
-      query: (type) => ({ url: `/${type}` }),
+      query: ({ type, ...params }) => ({ url: `/${type}`, params }),
       providesTags: (result) => {
         if (!result) {
           return [{ type: serviceTag, id: 'LIST' }];
