@@ -10,10 +10,12 @@ import {
 
 import routes from '@/resources/routes';
 
+import useAuthorization from '@/hooks/useAuthorization';
+
 const ContentWrapper = () => {
   const location = useLocation();
 
-  const isAuthorized = false;
+  const { isAuthorized } = useAuthorization();
   const isProfilePage = location.pathname === routes.profile.path;
 
   if (!isAuthorized && isProfilePage) {

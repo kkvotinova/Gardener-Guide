@@ -12,7 +12,10 @@ const store = configureStore({
     [plantsApi.reducerPath]: plantsApi.reducer,
   },
   middleware: (defaultMiddleware) =>
-    defaultMiddleware().concat([apiErrorHandler, ...ApiServices.map((a) => a.middleware)]),
+    defaultMiddleware().concat([
+      apiErrorHandler,
+      ...[...ApiServices, plantsApi].map((a) => a.middleware),
+    ]),
 });
 
 export default store;

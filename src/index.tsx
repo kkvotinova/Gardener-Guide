@@ -4,6 +4,7 @@ import { CssBaseline } from '@mui/material';
 
 import Router from '@/components/Router';
 import ReduxProvider from '@/components/ReduxProvider';
+import Notification from '@/components/Notification';
 import MaterialThemeProvider from '@/components/MaterialThemeProvider';
 import AppModalsList from '@/components/AppModalsList';
 
@@ -15,6 +16,7 @@ root.render(
       <CssBaseline />
       <ReduxProvider>
         <Router />
+        <Notification />
         <AppModalsList />
       </ReduxProvider>
     </MaterialThemeProvider>

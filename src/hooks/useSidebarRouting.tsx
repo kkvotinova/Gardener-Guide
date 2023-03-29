@@ -4,8 +4,10 @@ import routes from '@/resources/routes';
 
 import filterBoolean from '@/utils/filterBoolean';
 
+import useAuthorization from '@/hooks/useAuthorization';
+
 const useSidebarRouting = () => {
-  const isAuthorized = false;
+  const { isAuthorized } = useAuthorization();
 
   return useMemo(() => {
     const arr = [

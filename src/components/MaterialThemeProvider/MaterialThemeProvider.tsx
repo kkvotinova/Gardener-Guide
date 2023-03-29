@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import typography from '@/components/MaterialThemeProvider/config/typography';
 import shape from '@/components/MaterialThemeProvider/config/shape';
 import palette from '@/components/MaterialThemeProvider/config/palette';
+import ungroupedComponents from '@/components/MaterialThemeProvider/config/components/ungroupedComponents';
 import dialogComponents from '@/components/MaterialThemeProvider/config/components/dialogComponents';
 import buttonComponents from '@/components/MaterialThemeProvider/config/components/buttonComponents';
 import baseline from '@/components/MaterialThemeProvider/config/components/baseline';
@@ -43,6 +44,7 @@ const theme = createTheme({
     ...baseline,
     ...buttonComponents,
     ...dialogComponents,
+    ...ungroupedComponents,
   },
 });
 
