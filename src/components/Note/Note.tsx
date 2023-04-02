@@ -4,7 +4,22 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { NoteProps } from '@/components/Note/NoteTypes';
 
-const Note = ({ title, description }: NoteProps) => {
+import ModalNote from '@/modals/ModalNote/ModalNote';
+import ModalConfirm from '@/modals/ModalConfirm/ModalConfirm';
+
+const Note = (props: NoteProps) => {
+  const { title, description } = props;
+
+  const openAddNoteModal = () => {
+    ModalNote.show(props);
+  };
+
+  const handleDeleteNote = () => {
+    ModalConfirm.show({
+      onContinue: () => {},
+    });
+  };
+
   return (
     <Card variant='outlined'>
       <CardContent>
@@ -14,10 +29,10 @@ const Note = ({ title, description }: NoteProps) => {
         <Typography>{description}</Typography>
       </CardContent>
       <CardActions>
-        <IconButton>
+        <IconButton onClick={openAddNoteModal}>
           <EditIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={handleDeleteNote}>
           <DeleteIcon color='error' />
         </IconButton>
       </CardActions>

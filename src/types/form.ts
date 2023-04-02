@@ -37,6 +37,7 @@ export interface FormElementInputProps extends FormElementInner {
   isDecimalNumber?: boolean;
 
   isPassword?: boolean;
+  isMultiline?: boolean;
   isPhoneInput?: boolean;
 
   hideHelperText?: boolean;

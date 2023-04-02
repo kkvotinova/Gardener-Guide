@@ -5,6 +5,8 @@ import AddIcon from '@mui/icons-material/Add';
 import Search from '@/components/Search';
 import Note from '@/components/Note';
 
+import ModalNote from '@/modals/ModalNote/ModalNote';
+
 const queryName = 'title';
 
 const NOTES = [
@@ -25,7 +27,12 @@ const ProfileNotesPage = () => {
   const PageHeader = () => (
     <Stack direction='row' spacing={12} alignItems='center'>
       <Search queryName={queryName} isFullWidth isCustom />
-      <Button startIcon={<AddIcon />} variant='contained' color='secondary'>
+      <Button
+        color='secondary'
+        variant='contained'
+        startIcon={<AddIcon />}
+        onClick={() => ModalNote.show()}
+      >
         Заметка
       </Button>
     </Stack>

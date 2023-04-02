@@ -18,6 +18,7 @@ const FormElementInput = ({
   isDecimalNumber,
   maxLength,
   maskPlaceholder,
+  isMultiline = false,
   hideHelperText = false,
   description: propsDescription,
 }: FormElementInputProps) => {
@@ -73,6 +74,7 @@ const FormElementInput = ({
           variant='outlined'
           disabled={disabled}
           onBlur={handleOnBlur}
+          multiline={isMultiline}
           inputProps={{ maxLength, ...numberProps }}
           error={isError}
           helperText={description}
@@ -83,6 +85,7 @@ const FormElementInput = ({
       disabled,
       fieldValidate,
       hideHelperText,
+      isMultiline,
       label,
       maxLength,
       numberProps,

@@ -16,7 +16,7 @@ const ContentWrapper = () => {
   const location = useLocation();
 
   const { isAuthorized } = useAuthorization();
-  const isProfilePage = location.pathname === routes.profile.path;
+  const isProfilePage = location.pathname.includes(routes.profile.path);
 
   if (!isAuthorized && isProfilePage) {
     return <Navigate replace to={routes.index.path} />;

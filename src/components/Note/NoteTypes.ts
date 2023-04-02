@@ -1,5 +1,3 @@
-export interface NoteProps {
-  _id: string;
-  title: string;
-  description: string;
-}
+import { ApiNote } from '@/redux/services/notes/notes.types';
+
+export type NoteProps = ApiNote;
