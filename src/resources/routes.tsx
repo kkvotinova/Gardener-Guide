@@ -18,6 +18,14 @@ const routes = {
   },
   profile: {
     path: '/profile',
+    children: {
+      neighbors: {
+        path: '/profile/neighbors',
+      },
+      notes: {
+        path: '/profile/notes',
+      },
+    },
   },
 };
 

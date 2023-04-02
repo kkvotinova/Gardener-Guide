@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import ProfilePlantsPage from '@/pages/ProfilePlantsPage';
+import ProfilePage from '@/pages/ProfilePage';
+import ProfileNotesPage from '@/pages/ProfileNotesPage';
 import PlantsPage from '@/pages/PlantsPage';
 import PlantPage from '@/pages/PlantPage';
 import MainPage from '@/pages/MainPage';
@@ -47,7 +50,21 @@ const router = createBrowserRouter([
       },
       {
         path: routes.profile.path,
-        element: <div>profile</div>,
+        element: <ProfilePage />,
+        children: [
+          {
+            path: routes.profile.path,
+            element: <ProfilePlantsPage />,
+          },
+          {
+            path: routes.profile.children.neighbors.path,
+            element: <div>neighbors</div>,
+          },
+          {
+            path: routes.profile.children.notes.path,
+            element: <ProfileNotesPage />,
+          },
+        ],
       },
     ],
   },

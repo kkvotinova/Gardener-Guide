@@ -1,11 +1,11 @@
 import { useSearchParams } from 'react-router-dom';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, KeyboardEvent } from 'react';
 import { Button, TextField } from '@mui/material';
 
 import { SearchProps } from '@/components/Search/SearchTypes';
 import { StyledSearch } from '@/components/Search/SearchStyled';
 
-const Search = ({ queryName }: SearchProps) => {
+const Search = ({ queryName, isFullWidth = false, isCustom = false }: SearchProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const [, setSearchParams] = useSearchParams('');
@@ -18,18 +18,27 @@ const Search = ({ queryName }: SearchProps) => {
     setInputValue(event.target.value);
   };
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter') {
+      handleChangeQueryParam();
+    }
+  };
+
   return (
-    <StyledSearch>
+    <StyledSearch $isFullWidth={isFullWidth} $isCustom={isCustom}>
       <TextField
         fullWidth
         label='Поиск'
         value={inputValue}
+        onKeyDown={handleKeyDown}
         onChange={handleInputChange}
         sx={{ '& fieldset': { border: 'none' } }}
       />
-      <Button variant='contained' color='primary' onClick={handleChangeQueryParam}>
-        Найти
-      </Button>
+      {!isCustom && (
+        <Button variant='contained' color='primary' onClick={handleChangeQueryParam}>
+          Найти
+        </Button>
+      )}
     </StyledSearch>
   );
 };

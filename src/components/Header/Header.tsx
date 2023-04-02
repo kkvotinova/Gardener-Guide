@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Typography } from '@mui/material';
+import { useState, MouseEvent } from 'react';
+import { ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { StyledHeader, StyledButton, StyledLogo } from '@/components/Header/HeaderStyled';
 
@@ -15,24 +18,36 @@ import useAuthorization from '@/hooks/useAuthorization';
 import ModalLogin from '@/modals/ModalLogin/ModalLogin';
 
 const Header = () => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isAuthorized } = useAuthorization();
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    handleClose();
+    clearAllCache(dispatch);
+  };
+
+  const { isAuthorized, userInfo } = useAuthorization();
 
   const redirectToMainPage = () => navigate(routes.index.path);
 
-  const onLogin = () => {
+  const onLogin = (e: MouseEvent<HTMLButtonElement>) => {
     if (isAuthorized) {
-      clearAllCache(dispatch);
+      setAnchorEl(e.currentTarget);
       return;
     }
 
     ModalLogin.show();
   };
 
-  const buttonLabel = isAuthorized ? 'Выйти' : 'Войти';
+  const buttonLabel = isAuthorized ? userInfo?.username : 'Войти';
   const buttonVariant = isAuthorized ? 'text' : 'outlined';
+  const buttonIcon = isAuthorized ? <PersonIcon /> : undefined;
 
   return (
     <StyledHeader>
@@ -45,9 +60,24 @@ const Header = () => {
       >
         Помощник садовода
       </Typography>
-      <StyledButton variant={buttonVariant} onClick={onLogin}>
-        {buttonLabel}
-      </StyledButton>
+      <div>
+        <StyledButton
+          startIcon={buttonIcon}
+          variant={buttonVariant}
+          onClick={onLogin}
+          sx={isAuthorized ? { fontSize: 16 } : undefined}
+        >
+          {buttonLabel}
+        </StyledButton>
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+          <MenuItem onClick={handleLogout}>
+            <ListItemIcon>
+              <LogoutIcon fontSize='small' />
+            </ListItemIcon>
+            <ListItemText>Выйти</ListItemText>
+          </MenuItem>
+        </Menu>
+      </div>
     </StyledHeader>
   );
 };

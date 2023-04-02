@@ -1,6 +1,11 @@
-import { styled } from '@mui/material';
+import { css, styled } from '@mui/material';
 
-export const StyledSearch = styled('div')`
+import transientProps from '@/utils/transientProps';
+
+export const StyledSearch = styled('div', transientProps)<{
+  $isFullWidth: boolean;
+  $isCustom: boolean;
+}>`
   margin: 0 auto;
   margin-bottom: 40px;
 
@@ -21,4 +26,17 @@ export const StyledSearch = styled('div')`
     height: 48px;
     border-radius: ${({ theme }) => theme.shape.borderRadiusSecond};
   }
+
+  ${({ $isFullWidth }) =>
+    $isFullWidth &&
+    css`
+      width: 100%;
+    `}
+
+  ${({ $isCustom }) =>
+    $isCustom &&
+    css`
+      margin: 0;
+      max-width: 100%;
+    `}
 `;

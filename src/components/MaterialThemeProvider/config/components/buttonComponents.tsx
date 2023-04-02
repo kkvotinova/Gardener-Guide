@@ -25,6 +25,16 @@ const buttonComponents: Components = {
           color: palette.common.white,
         },
       },
+      {
+        props: { color: 'secondary' },
+        style: {
+          background: palette.primary.dark,
+
+          '&:hover': {
+            background: '#0f7a5d',
+          },
+        },
+      },
     ],
     styleOverrides: {
       root: {

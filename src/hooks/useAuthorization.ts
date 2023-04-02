@@ -37,7 +37,7 @@ const useAuthorization = () => {
 
     return {
       isLoading,
-      userInfo: isError ? undefined : data,
+      userInfo: isError ? undefined : (data as ApiUser),
       isAuthorized: Boolean(isError ? false : data),
     };
   }, [data, isError, isFirstRender, isLoading]);
