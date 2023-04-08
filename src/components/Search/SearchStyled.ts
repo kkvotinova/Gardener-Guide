@@ -14,7 +14,7 @@ export const StyledSearch = styled('div', transientProps)<{
   display: flex;
   align-items: center;
 
-  box-shadow: 0px 8px 24px rgba(129, 135, 189, 0.15);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06), 0px 8px 32px rgba(0, 0, 0, 0.04);
   border-radius: ${({ theme }) => theme.shape.borderRadiusSecond};
 
   & > MuiInputBase-root > .MuiOutlinedInput-notchedOutline {
@@ -38,5 +38,6 @@ export const StyledSearch = styled('div', transientProps)<{
     css`
       margin: 0;
       max-width: 100%;
+      box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.04);
     `}
 `;

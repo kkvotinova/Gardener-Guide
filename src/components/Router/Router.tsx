@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProfilePlantsPage from '@/pages/ProfilePlantsPage';
 import ProfilePage from '@/pages/ProfilePage';
 import ProfileNotesPage from '@/pages/ProfileNotesPage';
+import ProfileNeighborsPage from '@/pages/ProfileNeighborsPage';
 import PlantsPage from '@/pages/PlantsPage';
 import PlantPage from '@/pages/PlantPage';
 import MainPage from '@/pages/MainPage';
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
           },
           {
             path: routes.profile.children.neighbors.path,
-            element: <div>neighbors</div>,
+            element: <ProfileNeighborsPage />,
           },
           {
             path: routes.profile.children.notes.path,

@@ -12,7 +12,7 @@ export const StyledPlantCard = styled(Link, transientProps)<{ $hasSmallSize: boo
   flex-direction: column;
 
   border-radius: 12px;
-  box-shadow: 0px 8px 24px rgba(129, 135, 189, 0.15);
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.04);
   background: ${({ theme }) => theme.palette.common.white};
 
   transition: all 0.3s linear;
