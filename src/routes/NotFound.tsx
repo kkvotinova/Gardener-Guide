@@ -15,7 +15,7 @@ const NotFound = ({ hideIcon = false }: NotFoundProp) => {
       <Typography textAlign='center' variant='h6'>
         Похоже вы заблудились 🙁 Вернитесь на главную
       </Typography>
-      <StyledImage src={Image404} alt='logo' />
+      <StyledImage src={Image404} alt='notFound' duration={0} showLoading />
       <Button fullWidth variant='contained' href={routes.index.path} style={{ maxWidth: 240 }}>
         Вернуться
       </Button>

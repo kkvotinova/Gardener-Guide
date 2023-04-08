@@ -23,6 +23,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/throttle-debounce": "^5.0.0",
+    "mui-image": "^1.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@types/mui-image": "^1.0.1",
     "@types/validator": "^13.7.10",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",

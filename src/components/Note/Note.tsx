@@ -4,11 +4,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { NoteProps } from '@/components/Note/NoteTypes';
 
+import { useDeleteNoteByIdMutation } from '@/redux/services/notes/notes';
 import ModalNote from '@/modals/ModalNote/ModalNote';
 import ModalConfirm from '@/modals/ModalConfirm/ModalConfirm';
 
 const Note = (props: NoteProps) => {
-  const { title, description } = props;
+  const { _id, title, description } = props;
+
+  const [deleteNote] = useDeleteNoteByIdMutation();
 
   const openAddNoteModal = () => {
     ModalNote.show(props);
@@ -16,7 +19,10 @@ const Note = (props: NoteProps) => {
 
   const handleDeleteNote = () => {
     ModalConfirm.show({
-      onContinue: () => {},
+      withAwaiting: true,
+      onContinue: async () => {
+        await deleteNote(_id);
+      },
     });
   };
 
@@ -28,7 +34,7 @@ const Note = (props: NoteProps) => {
         </Typography>
         <Typography>{description}</Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: 'end' }}>
         <IconButton onClick={openAddNoteModal}>
           <EditIcon />
         </IconButton>

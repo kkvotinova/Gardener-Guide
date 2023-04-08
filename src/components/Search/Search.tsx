@@ -5,10 +5,15 @@ import { Button, TextField } from '@mui/material';
 import { SearchProps } from '@/components/Search/SearchTypes';
 import { StyledSearch } from '@/components/Search/SearchStyled';
 
-const Search = ({ queryName, isFullWidth = false, isCustom = false }: SearchProps) => {
-  const [inputValue, setInputValue] = useState('');
+const Search = ({
+  queryName,
+  isFullWidth = false,
+  isCustom = false,
+  defaultValue = '',
+}: SearchProps) => {
+  const [inputValue, setInputValue] = useState(defaultValue);
 
-  const [, setSearchParams] = useSearchParams('');
+  const [, setSearchParams] = useSearchParams(defaultValue);
 
   const handleChangeQueryParam = () => {
     setSearchParams({ [queryName]: inputValue });

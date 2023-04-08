@@ -1,3 +1,4 @@
+import Image from 'mui-image';
 import { styled } from '@mui/material';
 
 import Icon500 from '@/icons/Icon500';
@@ -28,7 +29,9 @@ export const StyledIcon500 = styled(Icon500)`
   }
 `;
 
-export const StyledImage = styled('img')`
+export const StyledImage = styled(Image)`
+  max-width: 400px;
+  max-height: 256px;
   ${({ theme }) => theme.breakpoints.down('sm')} {
     width: 60%;
   }

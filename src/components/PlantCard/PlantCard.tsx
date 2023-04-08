@@ -6,7 +6,7 @@ import { StyledPlantCard, StyledImage } from '@/components/PlantCard/PlantCardSt
 const PlantCard = ({ name, preview, linkToView, hasSmallSize = false }: PlantCardProps) => {
   return (
     <StyledPlantCard to={linkToView} $hasSmallSize={hasSmallSize}>
-      <StyledImage src={preview} alt='logo' $hasSmallSize={hasSmallSize} />
+      <StyledImage src={preview} $hasSmallSize={hasSmallSize} showLoading duration={0} />
       <Typography sx={!hasSmallSize ? { fontWeight: 500 } : undefined}>{name}</Typography>
     </StyledPlantCard>
   );

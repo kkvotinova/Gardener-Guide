@@ -1,6 +1,7 @@
 import { SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper';
 import { useMemo } from 'react';
+import MuiImage from 'mui-image';
 
 import { SwiperProps } from '@/components/Swiper/SwiperTypes';
 import {
@@ -16,7 +17,7 @@ const Swiper = ({ altText, items }: SwiperProps) => {
     return items.map((src, i) => (
       <SwiperSlide key={`${altText}-${i}`}>
         <StyledImageWrapper>
-          <img src={src} alt={altText} />
+          <MuiImage src={src} alt={altText} showLoading duration={0} />
         </StyledImageWrapper>
       </SwiperSlide>
     ));

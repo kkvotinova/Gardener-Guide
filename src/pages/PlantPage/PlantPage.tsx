@@ -66,7 +66,7 @@ const PlantPage = ({ isHerbPage }: PlantPageProp) => {
   return (
     <>
       <StyledStack direction='row' spacing={10}>
-        <Swiper altText={id} items={plant.gallery} />
+        <Swiper altText={plant.name} items={plant.gallery} />
 
         <StyledMainInfo direction='column' spacing={4}>
           <Typography variant='h4'>{plant.name}</Typography>

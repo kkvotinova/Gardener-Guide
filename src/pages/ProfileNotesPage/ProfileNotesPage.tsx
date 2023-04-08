@@ -1,32 +1,31 @@
+import { useSearchParams } from 'react-router-dom';
 import { useMemo } from 'react';
 import { Button, Stack, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 import Search from '@/components/Search';
 import Note from '@/components/Note';
+import Loader from '@/components/Loader';
 
+import { useGetNotesQuery } from '@/redux/services/notes/notes';
 import ModalNote from '@/modals/ModalNote/ModalNote';
 
 const queryName = 'title';
 
-const NOTES = [
-  {
-    _id: '12345678',
-    title: 'Test',
-    description:
-      // eslint-disable-next-line max-len
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae corrupti excepturi veniam commodi quam incidunt modi iure voluptates quibusdam! Exercitationem veniam quia consectetur natus, voluptatum tempore, et, aspernatur id blanditiis repellendus dolore. Deserunt voluptatem, a dolor maiores sed vero! Esse voluptates magnam reprehenderit ex facilis optio culpa molestias inventore eveniet voluptas itaque officiis temporibus dolorem ipsa obcaecati accusamus odit perferendis hic distinctio, eaque rerum amet pariatur doloremque laudantium. Consequuntur dicta modi eligendi nam vero quia, deserunt excepturi saepe sunt temporibus in delectus nisi repellendus, debitis distinctio totam amet accusantium velit odit. Est ipsam nemo, consectetur quod illo esse repellendus eos sunt cum libero nulla ullam soluta quisquam ex consequatur dolor odit veritatis natus, debitis, voluptas architecto mollitia tenetur exercitationem! Architecto?',
-  },
-];
-
 const ProfileNotesPage = () => {
+  const [searchParams] = useSearchParams();
+
+  const queryValue = searchParams.get(queryName);
+
+  const { data: notes, isLoading } = useGetNotesQuery({ title: queryValue || undefined });
+
   const config = useMemo(() => {
-    return NOTES.map((a) => <Note key={a._id} {...a} />);
-  }, []);
+    return (notes || []).map((a) => <Note key={a._id} {...a} />);
+  }, [notes]);
 
   const PageHeader = () => (
     <Stack direction='row' spacing={12} alignItems='center'>
-      <Search queryName={queryName} isFullWidth isCustom />
+      <Search queryName={queryName} isFullWidth isCustom defaultValue={queryValue || ''} />
       <Button
         color='secondary'
         variant='contained'
@@ -37,6 +36,15 @@ const ProfileNotesPage = () => {
       </Button>
     </Stack>
   );
+
+  if (isLoading) {
+    return (
+      <Stack direction='column' spacing={30}>
+        <PageHeader />
+        <Loader />
+      </Stack>
+    );
+  }
 
   if (!config.length) {
     return (
