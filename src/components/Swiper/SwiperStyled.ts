@@ -15,6 +15,10 @@ export const StyledSwiper = styled(Swiper)`
   height: 100%;
   border-radius: 20px;
   border: 1px solid #eee;
+
+  & .swiper-pagination .swiper-pagination-bullet {
+    background-color: ${({ theme }) => theme.palette.primary.main};
+  }
 `;
 
 export const StyledImageWrapper = styled('div')`

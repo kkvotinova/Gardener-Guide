@@ -24,8 +24,8 @@ const useSidebarRouting = () => {
         href: routes.herbs.path,
       },
       {
-        name: 'ДАЧНЫЙ ДИЗАЙН',
-        href: routes.design.path,
+        name: 'НОВОСТИ',
+        href: routes.news.path,
       },
       isAuthorized && {
         name: 'МОЙ ОГОРОД',
