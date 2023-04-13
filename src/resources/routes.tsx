@@ -13,8 +13,8 @@ const routes = {
     path: '/herbs',
     detailPath: (id: string | number) => `/herbs/${id}`,
   },
-  design: {
-    path: '/design',
+  news: {
+    path: '/news',
   },
   profile: {
     path: '/profile',

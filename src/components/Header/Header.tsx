@@ -4,6 +4,7 @@ import { useState, MouseEvent } from 'react';
 import { ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
 
 import { StyledHeader, StyledButton, StyledLogo } from '@/components/Header/HeaderStyled';
 
@@ -47,7 +48,7 @@ const Header = () => {
 
   const buttonLabel = isAuthorized ? userInfo?.username : 'Войти';
   const buttonVariant = isAuthorized ? 'text' : 'outlined';
-  const buttonIcon = isAuthorized ? <PersonIcon /> : undefined;
+  const buttonIcon = isAuthorized ? <PersonIcon /> : <LoginIcon />;
 
   return (
     <StyledHeader>

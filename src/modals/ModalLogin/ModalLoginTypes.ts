@@ -1,3 +1,7 @@
+export interface ModalLoginProps {
+  defaultIsLogout: boolean;
+}
+
 export enum FormModalLoginValues {
   EMAIL = 'email',
   USERNAME = 'username',

@@ -7,7 +7,6 @@ import ProfileNeighborsPage from '@/pages/ProfileNeighborsPage';
 import PlantsPage from '@/pages/PlantsPage';
 import PlantPage from '@/pages/PlantPage';
 import MainPage from '@/pages/MainPage';
-import DesignPage from '@/pages/DesignPage';
 import CalendarPage from '@/pages/CalendarPage';
 
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -46,8 +45,8 @@ const router = createBrowserRouter([
         element: <PlantPage isHerbPage />,
       },
       {
-        path: routes.design.path,
-        element: <DesignPage />,
+        path: routes.news.path,
+        element: <div>news</div>,
       },
       {
         path: routes.profile.path,

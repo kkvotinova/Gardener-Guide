@@ -17,15 +17,19 @@ import {
   useRegisterUserMutation,
 } from '@/redux/services/auth/auth';
 import withStaticModal, { StaticModalWrappedComponent } from '@/modals/withStaticModal';
-import { FormModalLoginData, FormModalLoginValues } from '@/modals/ModalLogin/ModalLoginTypes';
+import {
+  ModalLoginProps,
+  FormModalLoginData,
+  FormModalLoginValues,
+} from '@/modals/ModalLogin/ModalLoginTypes';
 import { StyledTypography } from '@/modals/ModalLogin/ModalLoginStyled';
 import FormElement from '@/form/FormElement';
 import Form from '@/form/Form';
 
-const ModalLogin: StaticModalWrappedComponent = (props) => {
+const ModalLogin: StaticModalWrappedComponent<ModalLoginProps> = (props) => {
   const dispatch = useDispatch();
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(!props.data?.defaultIsLogout);
 
   const [getMe] = useLazyGetMeQuery();
   const [loginUser, { isLoading: isLoginLoading }] = useLoginUserMutation();
@@ -94,4 +98,4 @@ const ModalLogin: StaticModalWrappedComponent = (props) => {
   );
 };
 
-export default withStaticModal(ModalLogin);
+export default withStaticModal<ModalLoginProps>(ModalLogin);
