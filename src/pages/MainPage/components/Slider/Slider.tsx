@@ -19,7 +19,7 @@ const Slider = ({ content }: SliderProps) => {
     return content.map(({ _id, preview, title }) => (
       <SwiperSlide key={_id} style={{ position: 'relative' }}>
         <StyledLink to={_id}>{title}</StyledLink>
-        <MuiImage src={preview} alt={title} showLoading duration={0} />
+        <MuiImage src={preview} alt={title} duration={0} />
       </SwiperSlide>
     ));
   }, [content]);

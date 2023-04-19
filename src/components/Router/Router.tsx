@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ProfilePlantsPage from '@/pages/ProfilePlantsPage';
 import ProfilePage from '@/pages/ProfilePage';
 import ProfileNotesPage from '@/pages/ProfileNotesPage';
 import ProfileNeighborsPage from '@/pages/ProfileNeighborsPage';
+import ProfileGardenPage from '@/pages/ProfileGardenPage';
 import PlantsPage from '@/pages/PlantsPage';
 import PlantPage from '@/pages/PlantPage';
 import MainPage from '@/pages/MainPage';
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: routes.profile.path,
-            element: <ProfilePlantsPage />,
+            element: <ProfileGardenPage />,
           },
           {
             path: routes.profile.children.neighbors.path,

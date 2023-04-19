@@ -5,6 +5,8 @@ import {
   ApiAuthLoginUserResponse,
   ApiAuthRegisterUserBody,
   ApiAuthRegisterUserResponse,
+  ApiUserDeleteGardenPatchBody,
+  ApiUserUpdateGardenPatchBody,
   ApiUsersMeGetResponse,
 } from '@/redux/services/auth/auth.types';
 import { servicesTags } from '@/redux/services';
@@ -37,10 +39,32 @@ const authApi = createApi({
       }),
       invalidatesTags: [serviceTag],
     }),
+    updateUserGarden: builder.mutation<ApiUsersMeGetResponse, ApiUserUpdateGardenPatchBody>({
+      query: (body) => ({
+        body,
+        method: 'PATCH',
+        url: '/users/garden',
+      }),
+      invalidatesTags: [serviceTag],
+    }),
+    deleteUserGarden: builder.mutation<ApiUsersMeGetResponse, ApiUserDeleteGardenPatchBody>({
+      query: (body) => ({
+        body,
+        method: 'PATCH',
+        url: '/users/garden/delete',
+      }),
+      invalidatesTags: [serviceTag],
+    }),
   }),
 });
 
-export const { useGetMeQuery, useLazyGetMeQuery, useLoginUserMutation, useRegisterUserMutation } =
-  authApi;
+export const {
+  useGetMeQuery,
+  useLazyGetMeQuery,
+  useLoginUserMutation,
+  useRegisterUserMutation,
+  useUpdateUserGardenMutation,
+  useDeleteUserGardenMutation,
+} = authApi;
 
 export default authApi;

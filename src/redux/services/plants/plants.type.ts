@@ -15,7 +15,7 @@ export enum ApiPlantType {
   HERB = 'herb',
 }
 
-type NeighborInfo = Pick<ApiPlant, '_id' | 'type' | 'name' | 'preview'>;
+export type NeighborInfo = Pick<ApiPlant, '_id' | 'type' | 'name' | 'preview'>;
 
 interface ApiPlantNeighbors {
   companion: NeighborInfo[];

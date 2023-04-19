@@ -25,6 +25,12 @@ interface FormElementInnerCommon {
 
 interface FormElementInner extends Omit<FormElementCommon, 'label'>, FormElementInnerCommon {}
 
+export interface SelectItem<T = string> {
+  value: string;
+  label: T;
+  name?: string;
+}
+
 export interface FormElementInputProps extends FormElementInner {
   component: 'input';
   description?: string;
