@@ -40,5 +40,5 @@ export const Square = styled(Grid, transientProps)<{ $isEmpty?: boolean }>`
         `}
 
   cursor: pointer;
-  border: 1px solid ${({ theme }) => theme.palette.secondary.main};
+  border: 1px solid #a37620;
 `;
