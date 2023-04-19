@@ -9,4 +9,8 @@ export const StyledFormControlLabel = styled(FormControlLabel)`
 
   border-radius: ${({ theme }) => theme.shape.borderRadius};
   border: 1px solid #eee;
+
+  & .MuiFormControlLabel-label {
+    width: 100%;
+  }
 `;

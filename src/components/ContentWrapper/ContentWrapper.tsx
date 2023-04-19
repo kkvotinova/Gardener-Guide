@@ -7,6 +7,7 @@ import {
   StyledContentWrapper,
   StyledContent,
 } from '@/components/ContentWrapper/ContentWrapperStyled';
+import AppModalsList from '@/components/AppModalsList';
 
 import routes from '@/resources/routes';
 
@@ -23,15 +24,19 @@ const ContentWrapper = () => {
   }
 
   return (
-    <StyledContentWrapper>
-      <StyledContent>
-        <Header />
-        <NavBar />
-        <Outlet />
-      </StyledContent>
+    <>
+      <StyledContentWrapper>
+        <StyledContent>
+          <Header />
+          <NavBar />
+          <Outlet />
+        </StyledContent>
 
-      <Footer />
-    </StyledContentWrapper>
+        <Footer />
+      </StyledContentWrapper>
+
+      <AppModalsList />
+    </>
   );
 };
 

@@ -1,9 +1,11 @@
 import { debounce } from 'throttle-debounce';
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'mui-image';
 import {
   DialogActions,
   FormControl,
+  IconButton,
   Radio,
   RadioGroup,
   Stack,
@@ -11,14 +13,17 @@ import {
   Typography,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import EastIcon from '@mui/icons-material/East';
 
 import Select from '@/components/Select';
 import Modal from '@/components/Modal';
 import Loader from '@/components/Loader';
 
+import routes from '@/resources/routes';
+
 import { useDebounceValue } from '@/hooks/useDebounceValue';
 
-import { ApiPlantType } from '@/redux/services/plants/plants.type';
+import { ApiPlant, ApiPlantType } from '@/redux/services/plants/plants.type';
 import { useGetAllPlantsQuery } from '@/redux/services/plants/plants';
 import { ApiUserUpdateGardenPatchBody } from '@/redux/services/auth/auth.types';
 import {
@@ -41,6 +46,8 @@ const options = [
 ];
 
 const ModalGarden: StaticModalWrappedComponent<ModalGardenProps> = (props) => {
+  const navigate = useNavigate();
+
   const isEmpty = !props.data?.garden.plant;
 
   const [selectValue, changeSelectValue] = useState(
@@ -96,6 +103,19 @@ const ModalGarden: StaticModalWrappedComponent<ModalGardenProps> = (props) => {
     }
   };
 
+  const handlePlantNavigate = useCallback(
+    (plant: ApiPlant) => () => {
+      const linkToView =
+        plant.type === ApiPlantType.HERB
+          ? routes.herbs.detailPath(plant._id)
+          : routes.vegetables.detailPath(plant._id);
+
+      props.onClose();
+      navigate(linkToView);
+    },
+    [navigate, props],
+  );
+
   useEffect(() => {
     if (!isEmpty) return;
     if (!plants?.length) return;
@@ -111,17 +131,22 @@ const ModalGarden: StaticModalWrappedComponent<ModalGardenProps> = (props) => {
           value={plant._id}
           control={<Radio />}
           label={
-            <Stack direction='row' spacing={4} marginLeft={2}>
-              <Image src={plant.preview} showLoading duration={0} width={60} height={60} />
-              <Typography alignSelf='center' fontSize={20}>
-                {plant.name}
-              </Typography>
+            <Stack direction='row' justifyContent='space-between' alignItems='center'>
+              <Stack direction='row' spacing={4} marginLeft={2}>
+                <Image src={plant.preview} showLoading duration={0} width={60} height={60} />
+                <Typography alignSelf='center' fontSize={20}>
+                  {plant.name}
+                </Typography>
+              </Stack>
+              <IconButton onClick={handlePlantNavigate(plant)} color='primary'>
+                <EastIcon />
+              </IconButton>
             </Stack>
           }
         />
       );
     });
-  }, [plants]);
+  }, [handlePlantNavigate, plants]);
 
   const title = isEmpty ? 'Добавить растение' : 'Редактировать';
   const buttonText = isEmpty ? 'Добавить' : 'Сохранить';
