@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Typography } from '@mui/material';
 
 import { InfoCardProps } from '@/components/InfoCard/InfoCardTypes';
-import { StyledInfoCard } from '@/components/InfoCard/InfoCardStyled';
+import { StyledInfoCard, StyledImage } from '@/components/InfoCard/InfoCardStyled';
 
 import IconWateringCan from '@/icons/IconWateringCan';
 import IconThermometer from '@/icons/IconThermometer';
@@ -11,6 +11,8 @@ import IconSnowflake from '@/icons/IconSnowflake';
 import IconEarth from '@/icons/IconEarth';
 import IconDownload from '@/icons/IconDownload';
 import IconCalendar from '@/icons/IconCalendar';
+
+import ImageInfo from '@/images/ImageInfo.png';
 
 import { translateQuickInfoTitle } from '@/resources/constants/plant';
 
@@ -40,6 +42,7 @@ const InfoCard = (props: InfoCardProps) => {
 
   return (
     <StyledInfoCard
+      style={{ position: 'relative' }}
       spacing={2}
       $hasInfo={hasInfo}
       alignItems='center'
@@ -49,6 +52,7 @@ const InfoCard = (props: InfoCardProps) => {
       <Typography sx={{ fontWeight: 500 }}>{translateQuickInfoTitle(type)}</Typography>
       {infoIcons[type]}
       <Typography>{value}</Typography>
+      {hasInfo && <StyledImage src={ImageInfo} />}
     </StyledInfoCard>
   );
 };

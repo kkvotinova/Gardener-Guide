@@ -1,4 +1,4 @@
-import { Swiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { styled } from '@mui/material';
 
 export const StyledSwiperWrapper = styled('div')`
@@ -28,4 +28,8 @@ export const StyledImageWrapper = styled('div')`
   & > img {
     width: 100%;
   }
+`;
+
+export const StyledSwiperSlide = styled(SwiperSlide)`
+  width: 460px;
 `;

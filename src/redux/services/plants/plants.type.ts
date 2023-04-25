@@ -1,6 +1,7 @@
 export interface ApiPlant {
   _id: string;
   name: string;
+  videoId?: string;
   type: ApiPlantType;
   preview: string;
   description: string;

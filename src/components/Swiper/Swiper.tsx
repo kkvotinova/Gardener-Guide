@@ -1,31 +1,36 @@
-import { SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper';
+import { useParams } from 'react-router-dom';
 import { useMemo } from 'react';
 import MuiImage from 'mui-image';
 
 import { SwiperProps } from '@/components/Swiper/SwiperTypes';
 import {
-  StyledSwiperWrapper,
   StyledSwiper,
+  StyledSwiperSlide,
   StyledImageWrapper,
+  StyledSwiperWrapper,
 } from '@/components/Swiper/SwiperStyled';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 const Swiper = ({ altText, items }: SwiperProps) => {
+  const { id } = useParams();
+
   const config = useMemo(() => {
     return items.map((src, i) => (
-      <SwiperSlide key={`${altText}-${i}`}>
+      <StyledSwiperSlide key={`${altText}-${i}`}>
         <StyledImageWrapper>
           <MuiImage src={src} alt={altText} showLoading duration={0} />
         </StyledImageWrapper>
-      </SwiperSlide>
+      </StyledSwiperSlide>
     ));
   }, [altText, items]);
 
   return (
     <StyledSwiperWrapper>
       <StyledSwiper
+        key={id}
         speed={750}
         slidesPerView={1}
         centeredSlides={true}

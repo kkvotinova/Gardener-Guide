@@ -1,3 +1,4 @@
+import YouTube from 'react-youtube';
 import { styled, Stack } from '@mui/material';
 
 export const StyledStack = styled(Stack)`
@@ -36,5 +37,12 @@ export const StyledNeighborsList = styled(Stack)`
   ${({ theme }) => theme.breakpoints.down('md')} {
     margin-left: 0 !important;
     margin-top: ${({ theme }) => theme.spacing(8)} !important;
+  }
+`;
+
+export const StyledYouTube = styled(YouTube)`
+  margin-top: 32px;
+  & > iframe {
+    border-radius: 16px;
   }
 `;

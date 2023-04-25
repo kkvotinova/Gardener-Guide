@@ -1,7 +1,5 @@
 import { styled, css, Stack } from '@mui/material';
 
-import ImageInfo from '@/images/ImageInfo.png';
-
 import transientProps from '@/utils/transientProps';
 
 export const StyledInfoCard = styled(Stack, transientProps)<{ $hasInfo: boolean }>`
@@ -21,9 +19,13 @@ export const StyledInfoCard = styled(Stack, transientProps)<{ $hasInfo: boolean 
         transform: scale(0.95);
         background-color: rgba(0, 0, 0, 0.02);
       }
-      background-image: url(${ImageInfo});
-      background-repeat: no-repeat;
-      background-position: 130px 6px;
-      background-size: 12px;
     `}
+`;
+
+export const StyledImage = styled('img')`
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 8px;
+  top: 0px;
 `;

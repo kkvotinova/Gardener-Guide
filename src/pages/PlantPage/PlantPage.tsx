@@ -7,6 +7,7 @@ import {
   StyledStack,
   StyledMainInfo,
   StyledNeighborsList,
+  StyledYouTube,
 } from '@/pages/PlantPage/PlantPageStyled';
 
 import Swiper from '@/components/Swiper';
@@ -96,6 +97,8 @@ const PlantPage = ({ isHerbPage }: PlantPageProp) => {
       <Stack direction='column' spacing={4}>
         {configForFullInfo}
       </Stack>
+
+      {plant.videoId && <StyledYouTube videoId={plant.videoId} loading='lazy' />}
     </>
   );
 };

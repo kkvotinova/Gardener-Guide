@@ -20,7 +20,7 @@ const ContentWrapper = () => {
   const isProfilePage = location.pathname.includes(routes.profile.path);
 
   if (!isAuthorized && isProfilePage) {
-    return <Navigate replace to={routes.index.path} />;
+    return <Navigate replace to={routes.index.path} state={{ from: location }} />;
   }
 
   return (
