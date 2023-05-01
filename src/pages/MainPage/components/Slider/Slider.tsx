@@ -16,6 +16,8 @@ import 'swiper/css/navigation';
 
 const Slider = ({ content }: SliderProps) => {
   const config = useMemo(() => {
+    if (!content?.length) return [];
+
     return content.map(({ _id, preview, title }) => (
       <SwiperSlide key={_id} style={{ position: 'relative' }}>
         <StyledLink to={_id}>{title}</StyledLink>

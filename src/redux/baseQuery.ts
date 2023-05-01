@@ -4,7 +4,6 @@ import { AUTH_TOKEN } from '@/resources/constants';
 
 import LocalStorage from '@/utils/LocalStorage';
 
-// @ts-ignore
 const getBaseQuery = (baseUrl: string) =>
   fetchBaseQuery({
     baseUrl,

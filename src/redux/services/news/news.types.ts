@@ -6,7 +6,6 @@ export interface ApiNews {
   author: string;
 
   createdAt?: Date;
-  updatedAt?: Date;
 
   fullInfo: ApiNewsFullInfo[];
   comments?: ApiNewsComment[];
@@ -23,3 +22,21 @@ interface ApiNewsFullInfo {
   preview?: string;
   description: string;
 }
+
+// === READ ↴
+
+export type ApiAllNewsGetQuery = {
+  limit?: number;
+  title?: string;
+};
+export type ApiAllNewsGetResponse = ApiNews[];
+
+// === READ ↴
+
+export type ApiNewsGetQuery = Pick<ApiNews, '_id'>;
+export type ApiNewsGetResponse = ApiNews;
+
+// === ADD COMMENT ↴
+
+export type ApiNewsByIdPatchBody = Pick<ApiNews, '_id'> & Pick<ApiNewsFullInfo, 'description'>;
+export type ApiNewsByIdPatchResponse = ApiNews;

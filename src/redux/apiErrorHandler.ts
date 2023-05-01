@@ -6,6 +6,7 @@ import clearAllCache from '@/utils/clearAllCache';
 import { AlerterTypes } from '@/utils/Alerter/AlerterTypes';
 import Alerter from '@/utils/Alerter/Alerter';
 
+import { servicesTags } from '@/redux/services';
 import store from '@/redux';
 
 type ApiErrorHandler = Middleware;
@@ -16,8 +17,10 @@ const apiErrorHandler: ApiErrorHandler = () => (next) => (action) => {
 
     switch (action.payload.status) {
       case 401:
-        if (store.getState().AUTH_API?.queries?.['getMe(undefined)']?.status === 'fulfilled') {
-          clearAllCache(store.dispatch);
+        clearAllCache(store.dispatch);
+
+        if (!action.type.includes(servicesTags.auth)) {
+          Alerter.show('Требуется повторная авторизация', AlerterTypes.error);
         }
         break;
 

@@ -15,13 +15,11 @@ import routes from '@/resources/routes';
 import { ApiNews } from '@/redux/services/news/news.types';
 
 const NewsCard = ({ _id, title, preview, comments, ...restProps }: ApiNews) => {
-  const formattedDate = dayjs(restProps.createdAt || restProps.updatedAt || Date()).format(
-    'DD.MM.YYYY',
-  );
+  const formattedDate = dayjs(restProps.createdAt || Date()).format('DD.MM.YYYY');
 
   return (
     <StyledCardWrapper to={routes.news.detailPath(_id)}>
-      <Image src={preview} duration={100} height={160} />
+      <Image src={preview} duration={100} height={160} showLoading />
 
       <StyledCardInfo>
         <StyledTypography>{title}</StyledTypography>

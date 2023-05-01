@@ -3,8 +3,9 @@ import Image from 'mui-image';
 import { Button, Stack, Typography } from '@mui/material';
 
 import Slider from '@/pages/MainPage/components/Slider';
-import { content } from '@/pages/MainPage/api';
 import { StyledMainInfo, StyledDescription } from '@/pages/MainPage/MainPageStyled';
+
+import Loader from '@/components/Loader';
 
 import ImagePlantLeaf from '@/images/ImagePlantLeaf.png';
 
@@ -12,11 +13,14 @@ import routes from '@/resources/routes';
 
 import useAuthorization from '@/hooks/useAuthorization';
 
+import { useGetAllNewsQuery } from '@/redux/services/news/news';
 import ModalLogin from '@/modals/ModalLogin/ModalLogin';
 
 const MainPage = () => {
   const navigate = useNavigate();
   const { isAuthorized } = useAuthorization();
+
+  const { data, isLoading } = useGetAllNewsQuery({ limit: 3 });
 
   const onLogin = (defaultIsLogout: boolean) => () => {
     ModalLogin.show({ defaultIsLogout });
@@ -26,10 +30,14 @@ const MainPage = () => {
     navigate(routes.profile.path);
   };
 
+  if (isLoading) {
+    return <Loader color='primary' />;
+  }
+
   return (
     <>
       <StyledMainInfo>
-        <Slider content={content} />
+        <Slider content={data} />
         <StyledDescription>
           <div>
             <Typography variant='h5' marginBottom={2}>
