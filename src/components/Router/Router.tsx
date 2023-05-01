@@ -6,6 +6,8 @@ import ProfileNeighborsPage from '@/pages/ProfileNeighborsPage';
 import ProfileGardenPage from '@/pages/ProfileGardenPage';
 import PlantsPage from '@/pages/PlantsPage';
 import PlantPage from '@/pages/PlantPage';
+import NewsPage from '@/pages/NewsPage';
+import NewsDetailedPage from '@/pages/NewsDetailedPage';
 import MainPage from '@/pages/MainPage';
 import CalendarPage from '@/pages/CalendarPage';
 
@@ -46,7 +48,11 @@ const router = createBrowserRouter([
       },
       {
         path: routes.news.path,
-        element: <div>news</div>,
+        element: <NewsPage />,
+      },
+      {
+        path: routes.news.detailPath(':id'),
+        element: <NewsDetailedPage />,
       },
       {
         path: routes.profile.path,
