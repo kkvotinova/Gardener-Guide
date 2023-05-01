@@ -15,6 +15,7 @@ const routes = {
   },
   news: {
     path: '/news',
+    detailPath: (id: string | number) => `/news/${id}`,
   },
   profile: {
     path: '/profile',
