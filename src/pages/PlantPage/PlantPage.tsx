@@ -17,10 +17,11 @@ import InfoCard from '@/components/InfoCard';
 
 import routes from '@/resources/routes';
 
-import { PlantPageProp } from '@/types';
 import NotFound from '@/routes/NotFound';
 import { ApiPlantType } from '@/redux/services/plants/plants.type';
 import { useGetPlantQuery } from '@/redux/services/plants/plants';
+
+export type PlantPageProp = { isHerbPage?: boolean };
 
 const PlantPage = ({ isHerbPage }: PlantPageProp) => {
   const { id } = useParams();
