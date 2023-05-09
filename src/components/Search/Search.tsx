@@ -1,5 +1,5 @@
-import { useSearchParams } from 'react-router-dom';
-import { ChangeEvent, useState, KeyboardEvent } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { ChangeEvent, useState, KeyboardEvent, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
 
 import { SearchProps } from '@/components/Search/SearchTypes';
@@ -11,6 +11,8 @@ const Search = ({
   isCustom = false,
   defaultValue = '',
 }: SearchProps) => {
+  const location = useLocation();
+
   const [inputValue, setInputValue] = useState(defaultValue);
 
   const [, setSearchParams] = useSearchParams(defaultValue);
@@ -28,6 +30,10 @@ const Search = ({
       handleChangeQueryParam();
     }
   };
+
+  useEffect(() => {
+    setInputValue('');
+  }, [location.pathname]);
 
   return (
     <StyledSearch $isFullWidth={isFullWidth} $isCustom={isCustom}>
