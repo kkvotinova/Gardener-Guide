@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import Image from 'mui-image';
 
-// import { garden } from '@/pages/ProfileGardenPage/api';
 import { StyledGridContainer, Square } from '@/pages/ProfileGardenPage/ProfileGardenPageStyled';
 
 import Loader from '@/components/Loader';
