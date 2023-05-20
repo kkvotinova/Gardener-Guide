@@ -13,6 +13,7 @@ import {
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import routes from '@/resources/routes';
 
 const Slider = ({ content }: SliderProps) => {
   const config = useMemo(() => {
@@ -20,7 +21,7 @@ const Slider = ({ content }: SliderProps) => {
 
     return content.map(({ _id, preview, title }) => (
       <SwiperSlide key={_id} style={{ position: 'relative' }}>
-        <StyledLink to={_id}>{title}</StyledLink>
+        <StyledLink to={routes.news.detailPath(_id)}>{title}</StyledLink>
         <MuiImage src={preview} alt={title} duration={0} />
       </SwiperSlide>
     ));
