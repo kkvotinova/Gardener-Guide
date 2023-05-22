@@ -30,6 +30,8 @@ const NewsDetailedPage = () => {
 
   const formattedDate = dayjs(news?.createdAt || Date()).format('LLL');
 
+  const isAdaptive = window.innerWidth < 600;
+
   const handleAddComment = async () => {
     if (!isAuthorized) {
       ModalLogin.show();
@@ -60,15 +62,22 @@ const NewsDetailedPage = () => {
         <Stack key={i} direction='column'>
           <Typography variant='h6'>{a.title}</Typography>
           <Typography marginBottom={hasImage ? 4 : 0}>{a.description}</Typography>
+
           {hasImage && (
             <StyledImageWrapper target='_blank' href={a.preview} rel='noreferrer'>
-              <StyledImage src={a.preview!} duration={0} height={300} width={400} showLoading />
+              <StyledImage
+                src={a.preview!}
+                duration={0}
+                height={300}
+                width={isAdaptive ? '80%' : 400}
+                showLoading
+              />
             </StyledImageWrapper>
           )}
         </Stack>
       );
     });
-  }, [news?.fullInfo]);
+  }, [isAdaptive, news?.fullInfo]);
 
   const commentsConfig = useMemo(() => {
     if (!news?.comments?.length) return [];
@@ -95,7 +104,13 @@ const NewsDetailedPage = () => {
         </Typography>
       </Stack>
 
-      <StyledImage src={String(news?.preview)} duration={0} height={400} width={600} showLoading />
+      <StyledImage
+        src={String(news?.preview)}
+        duration={0}
+        width={isAdaptive ? '100%' : 600}
+        height={400}
+        showLoading
+      />
 
       <Stack direction='column' spacing={4} marginTop={6}>
         {config}

@@ -20,4 +20,8 @@ export const StyledImage = styled(MuiImage, transientProps)`
 
 export const StyledInput = styled(TextField)`
   width: 600px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;

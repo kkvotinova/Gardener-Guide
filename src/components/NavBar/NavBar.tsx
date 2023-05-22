@@ -47,10 +47,6 @@ const NavBar = () => {
     if (location.pathname === '/') return 5;
 
     for (let index = 0; index < config.length; index++) {
-      console.log('location.pathname', location.pathname);
-      console.log('config[index]', config[index].href);
-      console.log('----------------------------');
-
       if (location.pathname.includes(config[index].href)) {
         return index;
       }

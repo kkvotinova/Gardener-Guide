@@ -4,7 +4,7 @@ import transientProps from '@/utils/transientProps';
 
 export const StyledGridContainer = styled(Grid)`
   margin: auto;
-  max-width: 600px;
+  width: 600px;
 `;
 
 export const Square = styled(Grid, transientProps)<{ $isEmpty?: boolean }>`
@@ -41,4 +41,9 @@ export const Square = styled(Grid, transientProps)<{ $isEmpty?: boolean }>`
 
   cursor: pointer;
   border: 1px solid #a37620;
+`;
+
+export const StyledContentWrapper = styled('div')`
+  width: 100%;
+  overflow: scroll;
 `;

@@ -1,7 +1,11 @@
 import { useCallback, useMemo } from 'react';
 import Image from 'mui-image';
 
-import { StyledGridContainer, Square } from '@/pages/ProfileGardenPage/ProfileGardenPageStyled';
+import {
+  StyledGridContainer,
+  Square,
+  StyledContentWrapper,
+} from '@/pages/ProfileGardenPage/ProfileGardenPageStyled';
 
 import Loader from '@/components/Loader';
 
@@ -45,9 +49,11 @@ const ProfileGardenPage = () => {
   }
 
   return (
-    <StyledGridContainer container spacing={0}>
-      {config}
-    </StyledGridContainer>
+    <StyledContentWrapper>
+      <StyledGridContainer container spacing={0}>
+        {config}
+      </StyledGridContainer>
+    </StyledContentWrapper>
   );
 };
 

@@ -18,6 +18,10 @@ export const StyledCardWrapper = styled(Link)`
     color: ${({ theme }) => theme.palette.primary.dark};
     transform: scale(0.99);
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const StyledCardInfo = styled('div')`
