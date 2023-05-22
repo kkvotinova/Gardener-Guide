@@ -6,7 +6,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 
-import { StyledHeader, StyledButton, StyledLogo } from '@/components/Header/HeaderStyled';
+import {
+  StyledHeader,
+  StyledButton,
+  StyledLogo,
+  StyledIconButton,
+} from '@/components/Header/HeaderStyled';
 
 import ImageLogo from '@/images/ImageLogo.png';
 
@@ -48,11 +53,12 @@ const Header = () => {
 
   const buttonLabel = isAuthorized ? userInfo?.username : 'Войти';
   const buttonVariant = isAuthorized ? 'text' : 'outlined';
-  const buttonIcon = isAuthorized ? <PersonIcon /> : <LoginIcon />;
+  const ButtonIcon = isAuthorized ? <PersonIcon /> : <LoginIcon />;
 
   return (
     <StyledHeader>
       <StyledLogo src={ImageLogo} alt='logo' onClick={redirectToMainPage} />
+
       <Typography
         variant='h2'
         color='primary.dark'
@@ -61,15 +67,17 @@ const Header = () => {
       >
         Помощник садовода
       </Typography>
+
       <div>
         <StyledButton
-          startIcon={buttonIcon}
+          startIcon={ButtonIcon}
           variant={buttonVariant}
           onClick={onLogin}
           sx={isAuthorized ? { fontSize: 16 } : undefined}
         >
           {buttonLabel}
         </StyledButton>
+
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
           <MenuItem onClick={handleLogout}>
             <ListItemIcon>
@@ -79,6 +87,10 @@ const Header = () => {
           </MenuItem>
         </Menu>
       </div>
+
+      <StyledIconButton color='primary' size='large' onClick={onLogin}>
+        {ButtonIcon}
+      </StyledIconButton>
     </StyledHeader>
   );
 };

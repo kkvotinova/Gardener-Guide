@@ -11,4 +11,8 @@ export const StyledFooter = styled('footer')`
   justify-content: center;
 
   background-color: ${({ theme }) => theme.palette.primary.dark};
+
+  @media (max-width: 600px) {
+    padding-bottom: 80px;
+  }
 `;

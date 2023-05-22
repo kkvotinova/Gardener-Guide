@@ -1,13 +1,23 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { FallbackProps } from 'react-error-boundary';
 import { useCallback } from 'react';
 import { Button, Stack, Typography } from '@mui/material';
 
 import { StyledIcon500 } from '@/components/ErrorBoundary/ErrorBoundaryStyled';
 
-const InternalServerError = () => {
+const InternalServerError = ({
+  resetErrorBoundary,
+}: Partial<Pick<FallbackProps, 'resetErrorBoundary'>>) => {
   const navigate = useNavigate();
 
-  const handleReloadPage = useCallback(() => navigate(0), [navigate]);
+  const handleReloadPage = useCallback(() => {
+    if (resetErrorBoundary) {
+      resetErrorBoundary();
+      return;
+    }
+
+    navigate(0);
+  }, [navigate, resetErrorBoundary]);
 
   return (
     <Stack direction='column' spacing={6} alignItems='center'>

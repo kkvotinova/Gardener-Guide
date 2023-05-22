@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Typography, styled } from '@mui/material';
 
 export const StyledCardWrapper = styled(Link)`
-  width: 300px;
+  width: 280px;
   height: 320px;
 
   display: flex;
