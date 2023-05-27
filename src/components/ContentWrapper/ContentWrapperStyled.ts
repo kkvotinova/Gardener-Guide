@@ -15,4 +15,8 @@ export const StyledContent = styled('div')`
 
   width: 100%;
   max-width: 1240px;
+
+  @media (max-width: 600px) {
+    padding: 0 16px;
+  }
 `;

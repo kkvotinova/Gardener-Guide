@@ -12,4 +12,14 @@ export const StyledList = styled(List)`
   & > a:not(:last-child) {
     margin-right: 36px;
   }
+
+  @media (max-width: 600px) {
+    & > a {
+      margin-bottom: 24px;
+    }
+
+    & > a:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
 `;

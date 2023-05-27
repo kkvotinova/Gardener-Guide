@@ -7,6 +7,11 @@ export const StyledMainInfo = styled('div')`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    height: auto;
+  }
 `;
 
 export const StyledDescription = styled('div')`
@@ -18,5 +23,9 @@ export const StyledDescription = styled('div')`
 
   & .mui-image-wrapper {
     align-self: center;
+  }
+
+  @media (max-width: 700px) {
+    gap: 24px;
   }
 `;

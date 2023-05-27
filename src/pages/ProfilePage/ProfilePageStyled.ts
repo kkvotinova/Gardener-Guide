@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { styled } from '@mui/material';
+import { Drawer, IconButton, styled } from '@mui/material';
 
 export const StyledSideBar = styled('div')`
   padding: 10px 0;
@@ -10,6 +10,10 @@ export const StyledSideBar = styled('div')`
 
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
   border-radius: ${({ theme }) => theme.shape.borderRadiusSecond};
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -35,4 +39,26 @@ export const StyledLink = styled(NavLink)`
 
 export const StyledWrapper = styled('div')`
   width: calc(100% - 253px);
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
+export const StyledContentWrapper = styled('div')`
+  gap: 32px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const StyledIconButton = styled(IconButton)`
+  @media (min-width: 900px) {
+    display: none;
+  }
+`;
+
+export const StyledDrawer = styled(Drawer)`
+  & > .MuiDrawer-paperAnchorLeft {
+    padding: 16px 0;
+  }
 `;

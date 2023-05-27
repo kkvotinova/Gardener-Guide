@@ -1,10 +1,15 @@
+import Image from 'mui-image';
 import { Grid, css, styled } from '@mui/material';
 
 import transientProps from '@/utils/transientProps';
 
 export const StyledGridContainer = styled(Grid)`
   margin: auto;
-  max-width: 600px;
+  width: 600px;
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 `;
 
 export const Square = styled(Grid, transientProps)<{ $isEmpty?: boolean }>`
@@ -41,4 +46,20 @@ export const Square = styled(Grid, transientProps)<{ $isEmpty?: boolean }>`
 
   cursor: pointer;
   border: 1px solid #a37620;
+
+  @media (max-width: 620px) {
+    height: calc(94vw / 4);
+
+    & > .mui-image-wrapper {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+`;
+
+export const StyledImage = styled(Image)`
+  @media (max-width: 620px) {
+    width: 60% !important;
+    height: 60% !important;
+  }
 `;

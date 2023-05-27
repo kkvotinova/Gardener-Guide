@@ -1,4 +1,4 @@
-import { Stack, styled } from '@mui/material';
+import { IconButton, Stack, styled } from '@mui/material';
 
 import ImageMoonPhases from '@/images/ImageMoonPhases.png';
 
@@ -17,6 +17,10 @@ export const StyledMoonWrapper = styled(Stack)`
 
   border: 1px solid #eee;
   border-radius: ${({ theme }) => theme.shape.borderRadiusSecond};
+
+  @media (max-width: 850px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const StyledMoon = styled(Stack)`
@@ -24,6 +28,11 @@ export const StyledMoon = styled(Stack)`
   height: 160px;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 850px) {
+    width: 50%;
+    height: 200px;
+  }
 `;
 
 export const StyledMoonImage = styled('div', transientProps)<{ $position: string }>`
@@ -41,4 +50,21 @@ export const StyledDay = styled(Stack, transientProps)<{ $bgColor: string }>`
 
   background-color: ${({ $bgColor }) => $bgColor};
   border-radius: ${({ theme }) => theme.shape.borderRadius};
+`;
+
+export const StyledContentWrapper = styled('div')`
+  gap: 32px;
+
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 1100px) {
+    justify-content: center;
+  }
+`;
+
+export const StyledIconButton = styled(IconButton)`
+  @media (min-width: 1100px) {
+    display: none;
+  }
 `;

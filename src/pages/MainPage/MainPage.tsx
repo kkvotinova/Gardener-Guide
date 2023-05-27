@@ -38,6 +38,7 @@ const MainPage = () => {
     <>
       <StyledMainInfo>
         <Slider content={data} />
+
         <StyledDescription>
           <div>
             <Typography variant='h5' marginBottom={2}>

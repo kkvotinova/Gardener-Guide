@@ -45,4 +45,10 @@ export const StyledYouTube = styled(YouTube)`
   & > iframe {
     border-radius: 16px;
   }
+
+  @media (max-width: 640px) {
+    & > iframe {
+      width: -webkit-fill-available;
+    }
+  }
 `;

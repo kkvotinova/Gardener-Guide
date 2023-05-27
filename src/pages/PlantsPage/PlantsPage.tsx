@@ -32,10 +32,12 @@ const PlantsPage = ({ isHerbPage }: PlantPageProp) => {
     if (!plants) return [];
 
     return plants.map((plant) => {
-      const linkToView = routes.vegetables.detailPath(plant._id);
+      const linkToView = isHerbPage
+        ? routes.herbs.detailPath(plant._id)
+        : routes.vegetables.detailPath(plant._id);
       return <PlantCard key={plant._id} linkToView={linkToView} {...plant} />;
     });
-  }, [plants]);
+  }, [isHerbPage, plants]);
 
   const MainInfo = useMemo(() => {
     return (

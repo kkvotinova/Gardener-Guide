@@ -1,12 +1,22 @@
 import { Outlet } from 'react-router-dom';
-import { useMemo } from 'react';
-import { Typography, Stack } from '@mui/material';
+import { useMemo, useState } from 'react';
+import { Stack, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
-import { StyledLink, StyledSideBar, StyledWrapper } from '@/pages/ProfilePage/ProfilePageStyled';
+import {
+  StyledContentWrapper,
+  StyledIconButton,
+  StyledLink,
+  StyledSideBar,
+  StyledWrapper,
+  StyledDrawer,
+} from '@/pages/ProfilePage/ProfilePageStyled';
 
 import { profileRoutes } from '@/resources/constants';
 
 const ProfilePage = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const config = useMemo(() => {
     return profileRoutes.map(({ label, path }) => {
       return (
@@ -19,15 +29,25 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Typography variant='h5' sx={{ mb: 6 }}>
-        Мой огород
-      </Typography>
-      <Stack direction='row' spacing={8}>
+      <Stack justifyContent='space-between' direction='row' sx={{ mb: 6 }} alignItems='center'>
+        <Typography variant='h5'>Мой огород</Typography>
+
+        <StyledIconButton size='large' onClick={() => setIsOpen(true)}>
+          <MenuIcon />
+        </StyledIconButton>
+      </Stack>
+
+      <StyledContentWrapper>
         <StyledSideBar>{config}</StyledSideBar>
+
         <StyledWrapper>
           <Outlet />
         </StyledWrapper>
-      </Stack>
+      </StyledContentWrapper>
+
+      <StyledDrawer anchor='left' open={isOpen} onClose={() => setIsOpen(false)}>
+        {config}
+      </StyledDrawer>
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
@@ -9,6 +10,8 @@ import ReduxProvider from '@/components/ReduxProvider';
 import Notification from '@/components/Notification';
 import MaterialThemeProvider from '@/components/MaterialThemeProvider';
 
+import InternalServerError from '@/routes/InternalServerError';
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 require('dayjs/locale/ru');
@@ -18,12 +21,14 @@ dayjs.locale('ru');
 
 root.render(
   <React.StrictMode>
-    <MaterialThemeProvider>
-      <CssBaseline />
-      <ReduxProvider>
-        <Router />
-        <Notification />
-      </ReduxProvider>
-    </MaterialThemeProvider>
+    <ErrorBoundary FallbackComponent={InternalServerError}>
+      <MaterialThemeProvider>
+        <CssBaseline />
+        <ReduxProvider>
+          <Router />
+          <Notification />
+        </ReduxProvider>
+      </MaterialThemeProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
 );

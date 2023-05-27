@@ -4,6 +4,14 @@ import { styled } from '@mui/material';
 
 export const StyledSwiperWrapper = styled('div')`
   width: 880px;
+
+  @media (max-width: 1114px) {
+    width: 60%;
+  }
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const StyledSwiper = styled(Swiper)`
@@ -40,5 +48,10 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     color: ${({ theme }) => theme.palette.primary.dark};
+  }
+
+  @media (max-width: 700px) {
+    font-size: 24px;
+    top: 20%;
   }
 `;

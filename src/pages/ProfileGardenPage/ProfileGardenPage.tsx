@@ -1,7 +1,10 @@
 import { useCallback, useMemo } from 'react';
-import Image from 'mui-image';
 
-import { StyledGridContainer, Square } from '@/pages/ProfileGardenPage/ProfileGardenPageStyled';
+import {
+  StyledGridContainer,
+  Square,
+  StyledImage,
+} from '@/pages/ProfileGardenPage/ProfileGardenPageStyled';
 
 import Loader from '@/components/Loader';
 
@@ -33,7 +36,13 @@ const ProfileGardenPage = () => {
       return (
         <Square key={i} item xs={3} $isEmpty={isEmpty} onMouseUp={openGardenModal(item, i)}>
           {!isEmpty ? (
-            <Image src={item.plant!.preview} duration={600} showLoading width={100} height={100} />
+            <StyledImage
+              src={item.plant!.preview}
+              duration={600}
+              showLoading
+              width={100}
+              height={100}
+            />
           ) : null}
         </Square>
       );

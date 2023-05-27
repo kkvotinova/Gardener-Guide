@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import MuiImage from 'mui-image';
-import { styled } from '@mui/material';
+import { css, styled } from '@mui/material';
 
 import transientProps from '@/utils/transientProps';
 
@@ -23,10 +23,28 @@ export const StyledPlantCard = styled(Link, transientProps)<{ $hasSmallSize: boo
     color: ${({ theme }) => theme.palette.primary.dark};
     transform: scale(0.95);
   }
+
+  @media (max-width: 600px) {
+    ${({ $hasSmallSize }) =>
+      !$hasSmallSize &&
+      css`
+        padding: 8px;
+        width: 120px;
+      `}
+  }
 `;
 
 export const StyledImage = styled(MuiImage, transientProps)<{ $hasSmallSize: boolean }>`
   margin-bottom: ${({ $hasSmallSize }) => ($hasSmallSize ? '6px' : '16px')};
   max-width: ${({ $hasSmallSize }) => ($hasSmallSize ? '32px' : '100px')};
   max-height: ${({ $hasSmallSize }) => ($hasSmallSize ? '32px' : '100px')};
+
+  @media (max-width: 600px) {
+    ${({ $hasSmallSize }) =>
+      !$hasSmallSize &&
+      css`
+        max-width: 60px;
+        max-height: 60px;
+      `}
+  }
 `;
