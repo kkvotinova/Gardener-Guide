@@ -1,12 +1,15 @@
 import { useSearchParams } from 'react-router-dom';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Stack, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import {
   StyledMoonWrapper,
   StyledMoonImage,
   StyledMoon,
   StyledDay,
+  StyledContentWrapper,
+  StyledIconButton,
 } from '@/pages/CalendarPage/CalendarPageStyled';
 
 import SideBar from '@/components/SideBar';
@@ -24,6 +27,7 @@ import {
 import { MOON_CALENDAR } from '@/api/calendar';
 
 const CalendarPage = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentMonth = searchParams.get('month');
@@ -69,20 +73,27 @@ const CalendarPage = () => {
 
   return (
     <>
-      <Typography variant='h5' sx={{ mb: 6 }}>
-        Лунный календарь садовода на 2023 год
-      </Typography>
+      <Stack justifyContent='space-between' direction='row' sx={{ mb: 6 }} alignItems='center'>
+        <Typography variant='h5'>Лунный календарь садовода на 2023 год</Typography>
 
-      <Stack direction='row' spacing={8}>
-        <SideBar />
+        <StyledIconButton size='large' onClick={() => setIsOpen(true)}>
+          <MenuIcon />
+        </StyledIconButton>
+      </Stack>
+
+      <StyledContentWrapper>
+        <SideBar isOpen={isOpen} onClose={() => setIsOpen(false)} />
+
         <Stack direction='column'>
           <Typography variant='h6'>Фазы луны в {translateMonth(currentMonth)}</Typography>
+
           <StyledMoonWrapper>{renderMoons}</StyledMoonWrapper>
+
           <Stack direction='column' spacing={2.5}>
             {renderDays}
           </Stack>
         </Stack>
-      </Stack>
+      </StyledContentWrapper>
     </>
   );
 };

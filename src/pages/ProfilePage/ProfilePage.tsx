@@ -29,10 +29,8 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Stack justifyContent='space-between' direction='row'>
-        <Typography variant='h5' sx={{ mb: 6 }}>
-          Мой огород
-        </Typography>
+      <Stack justifyContent='space-between' direction='row' sx={{ mb: 6 }} alignItems='center'>
+        <Typography variant='h5'>Мой огород</Typography>
 
         <StyledIconButton size='large' onClick={() => setIsOpen(true)}>
           <MenuIcon />

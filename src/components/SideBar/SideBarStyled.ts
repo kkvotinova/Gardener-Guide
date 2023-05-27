@@ -1,4 +1,4 @@
-import { css, styled, Typography } from '@mui/material';
+import { css, Drawer, styled, Typography } from '@mui/material';
 
 import transientProps from '@/utils/transientProps';
 
@@ -7,6 +7,10 @@ export const StyledSideBar = styled('div')`
 
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
   border-radius: ${({ theme }) => theme.shape.borderRadiusSecond};
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 export const StyleTypography = styled(Typography, transientProps)<{ $isActive: boolean }>`
@@ -28,4 +32,10 @@ export const StyleTypography = styled(Typography, transientProps)<{ $isActive: b
             background-color: rgba(33, 203, 119, 0.2);
           }
         `}
+`;
+
+export const StyledDrawer = styled(Drawer)`
+  & > .MuiDrawer-paperAnchorLeft {
+    padding: 16px 0;
+  }
 `;
